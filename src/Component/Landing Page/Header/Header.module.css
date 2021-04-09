@@ -1,0 +1,75 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.majorContainer {
+  background-color: #252525;
+  height: 70px;
+}
+.LogoContainer {
+  position: static;
+  float: left;
+  margin-top: 2px;
+  margin-left: 20px;
+}
+.LogoContainer img {
+  height: 60px;
+}
+.UtilityContainer {
+  position: static;
+  float: right;
+  margin-top: 16px;
+  margin-right: 15px;
+}
+.user {
+  float: right;
+}
+.user img {
+  height: 21px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.loginbtn {
+  float: right;
+  margin-top: 4px;
+  margin-right: 20px;
+}
+.lnk {
+  text-decoration: none;
+  color: #fff;
+}
+.lnk:hover {
+  color: #64dfdf;
+  transition-duration: 0.4s;
+}
+.searchBar {
+  margin-right: 20px;
+  float: right;
+}
+.inputText {
+  float: left;
+  width: 260px;
+  height: 30px;
+  background-color: #404040;
+  border: none;
+  outline: none;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 16px;
+  color: #fff;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.button {
+  float: right;
+  width: 40px;
+  height: 30px;
+  border-left: 1px solid rgba(255, 255, 255, 0.445);
+  background-color: #404040;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.button img {
+  height: 21px;
+  margin-top: 5px;
+}
