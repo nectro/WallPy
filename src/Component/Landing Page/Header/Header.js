@@ -20,9 +20,9 @@ const Header = ()=>{
                 </div>
                 <div className={classes.searchBar}>
                     <input type="text" className={classes.inputText}/>
-                    <div className={classes.button}>
+                    <button className={classes.button}>
                         <img src={Search} />
-                    </div>
+                    </button>
                 </div>
             </div>
 
