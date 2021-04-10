@@ -1,5 +1,5 @@
 import React from "react"
-import city from "../../../Assets/city.jpg"
+import city from "../../../Assets/city.png"
 import Search from "../../../Assets/search.svg";
 import Logo from "../../../Assets/Logo1.svg";
 import classes from "../BackgroundImage/BackgroundImage.module.css"
