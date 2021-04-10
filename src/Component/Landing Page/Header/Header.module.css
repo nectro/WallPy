@@ -71,6 +71,11 @@
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
 }
+.button:hover {
+  background-color: #64dfdf;
+  transition-duration: 00.4s;
+  cursor: pointer;
+}
 .button img {
   height: 21px;
   margin-top: 5px;
