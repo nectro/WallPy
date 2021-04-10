@@ -5,6 +5,7 @@
 .majorContainer {
   background-color: #252525;
   height: 60px;
+  overflow-y: hidden;
 }
 .LogoContainer {
   position: static;
