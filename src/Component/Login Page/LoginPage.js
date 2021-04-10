@@ -1,6 +1,7 @@
 import react from "react";
 import classes from "../Login Page/LoginPage.module.css";
 import Logo from "../../Assets/Logo1.svg";
+import Google from "../../Assets/GoogleIcon.svg";
 import {Link} from "react-router-dom";
 
 const LoginPage = ()=>{
@@ -9,7 +10,16 @@ const LoginPage = ()=>{
 
             <div className={classes.main}>
                 <div className={classes.formContainer}>
-
+                    <div className={classes.form}>
+                        <ul>
+                            <li><h2>Login</h2></li>
+                            <li><input type="text" placeholder="email" /></li>
+                            <li><input type="text" placeholder="password" /></li>
+                            <li><button className={classes.button}>Login</button></li>
+                            <li><div className={classes.divider}><hr /><p>or</p><hr /></div></li>
+                            <li><button className={classes.GoogleBtn}><img src={Google} /> <p>Signin with Google</p></button></li>
+                        </ul>
+                    </div>
                 </div>
                 <div className={classes.logoContainer}>
                     <div className={classes.logoQuote}>
