@@ -1,0 +1,27 @@
+*{
+     margin: 0px;
+     padding: 0px;
+}
+.majorContainer{
+    
+     background-color:#252525;
+     height: 40px;
+}
+.optionslist{
+     display: flex;
+     justify-content:left;
+     list-style: none;
+     font-size: 16px;
+     text-transform:uppercase;
+}
+.options{
+     margin: 10px;
+     color: #ffff;
+     padding-right: 20px;
+     cursor: pointer;
+}
+.options:hover{
+     color: #64dfdf;
+     transition-duration: 0.4s;
+     
+}
