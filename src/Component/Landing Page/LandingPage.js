@@ -4,7 +4,6 @@ import Header from "../Landing Page/Header/Header";
 import PopularBar from "./popularBar/PopularBar"
 import BackgroundImage from "./BackgroundImage/BackgroundImage"
 import Catalog from "./Catalog/Catalog"
-import Upload from "../Upload/Upload";
 const LandingPage = ()=>{
     return(
         <div className={classes.majorContainer}>
@@ -12,7 +11,6 @@ const LandingPage = ()=>{
             <PopularBar />
             <BackgroundImage />
             <Catalog />
-            <Upload/>
         </div>
     )
 }
