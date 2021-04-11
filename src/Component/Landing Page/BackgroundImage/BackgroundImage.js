@@ -7,7 +7,7 @@ const BackgroundImage = () => {
   return (
        <div className={classes.majorContainer} style={{ backgroundImage: `url(${city})`}}>
             <div className={classes.searchBar}>
-                    <img className={classes.Logo} src={Logo} />
+                    
                     <input type="text" className={classes.inputText}/>
                     <button className={classes.button}>
                         <img src={Search} />

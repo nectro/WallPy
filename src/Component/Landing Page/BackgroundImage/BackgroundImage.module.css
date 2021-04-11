@@ -11,7 +11,7 @@
      background-size: cover;
 }
 .searchBar {
-     margin-right: 22%;
+     margin-right: 25%;
      margin-top: 15%;
      float: right;
    }
@@ -36,11 +36,7 @@
      border-left: 1px solid rgba(255, 255, 255, 0.445);
      background-color: #fff;
    }
-   .Logo{
-     float: left;
-     height: 103px;
-     transform: translate( 0px,-25px);
-   }
+   
    .button:hover {
      background-color: #64dfdf;
      transition-duration: 00.4s;
