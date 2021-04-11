@@ -8,13 +8,17 @@
      grid-template-columns: 1fr 1fr 1fr;
      grid-template-areas: "Column1 Column2 Column3";
      gap: 10px;
+     padding: 10px;
 }
 .Column1{
      grid-area: Column1;
+     background-color: aqua;
 }
 .Column2{
      grid-area: Column2;
+     background-color: aqua;
 }
-.Column2{
+.Column3{
      grid-area: Column3;
+     background-color:aqua;
 }

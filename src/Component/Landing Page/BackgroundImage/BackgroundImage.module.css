@@ -10,6 +10,10 @@
   background-repeat: repeat;
   background-size: cover;
 }
+.bottomBar{
+  height: 20px;
+  background-color: blue;
+}
 .searchBar {
      margin-right: 25%;
      margin-top: 15%;

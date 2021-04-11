@@ -12,7 +12,8 @@ const BackgroundImage = () => {
                     <button className={classes.button}>
                         <img src={Search} />
                     </button>
-                </div>
+          </div>
+          <div className={classes.bottomBar}></div>
      </div>
      )
 }
