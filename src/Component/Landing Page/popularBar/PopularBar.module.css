@@ -4,7 +4,7 @@
 }
 .majorContainer {
   background-color: #252525;
-  height: 40px;
+  height: 45px;
   margin-top: -1px;
   padding-right: 30px;
   padding-left: 30px;
@@ -13,10 +13,9 @@
   display: inline-flex;
   list-style: none;
   font-size: 16px;
-  text-transform: uppercase;
   float: left;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 12px;
   overflow: auto;
 }
 ::-webkit-scrollbar {
@@ -24,9 +23,11 @@
 }
 .options {
   color: rgba(255, 255, 255, 0.774);
-  padding-right: 30px;
-  padding-left: 30px;
+  padding-right: 35px;
+  padding-left: 35px;
   cursor: pointer;
+  font-weight: 100;
+  font-size: 15px;
 }
 .options:hover {
   color: #64dfdf;
