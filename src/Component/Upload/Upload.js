@@ -27,7 +27,9 @@ const Upload = () => {
                          {file  && <div className="file">{file.name}</div>}
                     </div>
                </form>
+               
           </div>
+          
      )
 }
 export default Upload
