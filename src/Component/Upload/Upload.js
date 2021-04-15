@@ -13,6 +13,7 @@ const Upload = () => {
           {
                setFile(selected);
                setError("");
+               console.log(`${file}`)
           }
           else
           {
