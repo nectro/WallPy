@@ -1,6 +1,6 @@
 import React from 'react'
 /*problem korche ei hook ta*/
-/*import useStorage from '../Hooks/useStorage'*/
+import useStorage from '../Hooks/useStorage'
 import classes from '../Upload/ProgressBar.module.css'
 
 const ProgressBar = () => {
