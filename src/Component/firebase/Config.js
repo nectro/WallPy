@@ -21,6 +21,6 @@ firebase.analytics();
 //here
 
 
-const projectstorage = firebase.storage();
+const projectStorage = firebase.storage();
 const projectfirestore = firebase.firestore();
-export { projectfirestore, projectstorage };
+export { projectfirestore, projectStorage };
