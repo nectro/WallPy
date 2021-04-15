@@ -20,4 +20,4 @@ import firebase from "firebase";
 
 const projectStorage = firebaseApp.storage();
 const projectfirestore = firebaseApp.firestore();
-export { projectfirestore, projectStorage };
+export { projectfirestore, projectStorage, firebaseApp};
