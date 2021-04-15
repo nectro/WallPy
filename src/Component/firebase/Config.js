@@ -3,17 +3,19 @@ import firebase from "firebase";
 
 //here
 
-  const firebaseConfig = {
-     apiKey: "AIzaSyAgWGvioLC44-FfvX7TaqQS21cdZWqVhgk",
-     authDomain: "wallpy-6981e.firebaseapp.com",
-     projectId: "wallpy-6981e",
-     storageBucket: "wallpy-6981e.appspot.com",
-     messagingSenderId: "45060330082",
-     appId: "1:45060330082:web:ceedb38753e69fb115373b",
-     measurementId: "G-D84HG6R7BD"
-   };
+var firebaseConfig = {
+  apiKey: "AIzaSyDZC6ZmFA7b1vEU23bbFgnFfD_uOV5MRog",
+  authDomain: "wallpaper-5e0d2.firebaseapp.com",
+  projectId: "wallpaper-5e0d2",
+  storageBucket: "wallpaper-5e0d2.appspot.com",
+  messagingSenderId: "460181353603",
+  appId: "1:460181353603:web:57b36aa779e2667f0457b6",
+  measurementId: "G-XNEYH7VMN8"
+};
+
    // Initialize Firebase
-   const firebaseApp=firebase.initializeApp(firebaseConfig);
+  const firebaseApp = firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 
 //here
 
