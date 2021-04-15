@@ -1,11 +1,9 @@
-import * as firebase from 'firebase/app';
-import 'firebase/storage';
-import 'firebase/firestore';
+import firebase from "firebase";
 
 
 //here
 
-  var firebaseConfig = {
+  const firebaseConfig = {
      apiKey: "AIzaSyAgWGvioLC44-FfvX7TaqQS21cdZWqVhgk",
      authDomain: "wallpy-6981e.firebaseapp.com",
      projectId: "wallpy-6981e",
@@ -15,12 +13,11 @@ import 'firebase/firestore';
      measurementId: "G-D84HG6R7BD"
    };
    // Initialize Firebase
-   firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+   const firebaseApp=firebase.initializeApp(firebaseConfig);
 
 //here
 
 
-const projectStorage = firebase.storage();
-const projectfirestore = firebase.firestore();
+const projectStorage = firebaseApp.storage();
+const projectfirestore = firebaseApp.firestore();
 export { projectfirestore, projectStorage };

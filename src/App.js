@@ -21,7 +21,7 @@ function App() {
           <Route path="/upload">
             <Upload/>
           </Route>
-          <Route path="/aboutus">
+          <Route path="/AboutUs">
             <AboutUs/>
           </Route>
         </Switch>

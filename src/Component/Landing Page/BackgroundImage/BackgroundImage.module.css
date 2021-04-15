@@ -6,8 +6,8 @@
   margin: 0px;
   height: calc(100vh - 105px);
   background: linear-gradient(
-      rgba(104, 48, 195, 0.25),
-      rgba(104, 48, 195, 0.25)
+      rgba(104, 48, 195, 0.15),
+      rgba(104, 48, 195, 0.15)
     ),
     url(../../../Assets/city.png);
   background-position: center;
