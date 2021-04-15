@@ -2,13 +2,19 @@ import react, { useState } from "react"
 import ProgressBar from '../Upload/ProgressBar'
 import { projectStorage, firebaseApp } from "../firebase/Config"
 const Upload = () => {
+
+     const [progress, setProgress] = useState(0);
      const [file, setFile] = useState(null);
      const [error, setError] = useState(null);
-     const types = ["image/jpeg", "image/png","image/jpg"];
+
+
+     const types = ["image/jpeg", "image/png", "image/jpg"];
+     
+
      const changehandler = (events)=>
      {
           var selected = events.target.files[0];
-          console.log(selected.type)
+          console.log(selected)
           if (selected  && types.includes(selected.type))
           {
                setFile(selected);
@@ -22,7 +28,6 @@ const Upload = () => {
      }
      const upload = (e)=>{
           e.preventDefault();
-          console.log("yep!");
           var storageRef = firebaseApp.storage().ref();
 
           // Create a reference to 'mountains.jpg'
@@ -31,8 +36,9 @@ const Upload = () => {
           // Create a reference to 'images/mountains.jpg'
           var mountainImagesRef = storageRef.child("images/+`${file}`");
 
-          mountainsRef.put(file).then((snapshot) => {
-               console.log('Uploaded a blob or file!');
+          mountainsRef.put(file).on('state_changed', (snap) => {
+               let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
+               setProgress(percentage)
              });
      }
      return (
@@ -41,8 +47,7 @@ const Upload = () => {
                     <input type="file" onChange={changehandler} />
                     <div className="output">
                          {error && <div className="error">{error}</div>}
-                         {file && <div className="file">{file.name}</div>}
-                         {file && <ProgressBar file={file} setFile={setFile}/>}
+                         {file && <ProgressBar progress={progress} />}
                     </div>
                     <button onClick={upload}>upload</button>
                </form>
