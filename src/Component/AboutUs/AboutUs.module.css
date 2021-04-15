@@ -3,15 +3,7 @@
   padding: 0px;
 }
 .majorContainer {
-  padding: 20px;
-  display: grid;
   background-color: #404040;
-  grid-template-rows: 400px 400px 400px 100px;
-  grid-template-areas:
-    "companyLogo"
-    "aboutus"
-    "ourteam"
-    "footer";
 }
 .title {
   font-size: 24px;
@@ -25,11 +17,9 @@
 }
 .companyLogo {
   padding-top: 130px;
-  grid-area: companyLogo;
 }
 .aboutus {
   border-top: black solid 1px;
-  grid-area: aboutus;
 }
 .aboutcontent {
   padding-top: 150px;
@@ -38,7 +28,6 @@
 }
 .ourteam {
   border-top: black solid 1px;
-  grid-area: ourteam;
 }
 .ourteamcontent {
   padding-top: 150px;
