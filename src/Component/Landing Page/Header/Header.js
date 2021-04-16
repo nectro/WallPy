@@ -4,21 +4,15 @@ import Logo from "../../../Assets/Logo1.svg";
 import User from "../../../Assets/User-info.svg";
 import Search from "../../../Assets/search.svg";
 import {Link} from "react-router-dom";
+import Upload from "../../Upload/Upload";
 
 const Header = ()=>{
     return(
         <div className={classes.majorContainer}>
-            <div className={classes.modalMajorContainerC} id="modCtn" onClick={
-                ()=>{
-                    document.getElementById('modCtn').classList.remove(classes.modalMajorContainerO);
-                    document.getElementById('mod').classList.remove(classes.modalContainerO);
-                    document.getElementById('modCtn').classList.add(classes.modalMajorContainerC);
-                    document.getElementById('mod').classList.add(classes.modalContainerC);                    
-                }
-            }>
+            <div className={classes.modalMajorContainerC} id="modCtn" >
                 <div className={classes.modalContainerC} id="mod">
                     <div className={classes.modalUploadC}>
-
+                        <Upload />
                     </div>
                 </div>
             </div>

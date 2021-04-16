@@ -18,9 +18,6 @@ function App() {
           <Route path="/Login" >
             <LoginPage />
           </Route>
-          <Route path="/upload">
-            <Upload/>
-          </Route>
           <Route path="/AboutUs">
             <AboutUs/>
           </Route>
