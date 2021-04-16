@@ -18,13 +18,11 @@ const Upload = () => {
           e.preventDefault();
           var storageRef = firebaseApp.storage().ref();
 
-          // Create a reference to 'mountains.jpg'
-          var mountainsRef = storageRef.child(file.name);
 
           // Create a reference to 'images/mountains.jpg'
-          var mountainImagesRef = storageRef.child("images/+`${file}`");
+          var mountainImagesRef = storageRef.child(`images/+${file.name}`);
 
-          mountainsRef.put(file).on('state_changed', (snap) => {
+          mountainImagesRef.put(file).on('state_changed', (snap) => {
                let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
                setProgress(percentage)
              });
@@ -32,10 +30,10 @@ const Upload = () => {
 
      const onDrop = acceptedFiles => {
           var selected = acceptedFiles[0];
-          console.log(selected.type)
+         
           if (selected  && types.includes(selected.type))
           {
-               console.log(URL.createObjectURL(selected))
+               
                setFile(selected);
                setError("");
           }
