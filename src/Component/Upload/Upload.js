@@ -89,7 +89,7 @@ const Upload = () => {
                         setProgress(0);
                         setUpStyle({display:"block"});
                         setProgStyle({display:"none"});
-                    }} className={classes.buttonC}>cancel</button>
+                    }} className={classes.buttonC}>re-select</button>
                </div>
           
                
