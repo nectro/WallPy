@@ -1,4 +1,4 @@
-import react, { useState, useCallback } from "react"
+import react, { useState, useEffect } from "react"
 import ProgressBar from '../Upload/ProgressBar'
 import { projectStorage, firebaseApp } from "../firebase/Config"
 import classes from "../Upload/upload.module.css";
@@ -23,6 +23,7 @@ const Upload = () => {
 
           // Create a reference to 'images/mountains.jpg'
           var mountainImagesRef = storageRef.child("images/+`${file}`");
+          setUrl(mountainImagesRef);
 
           mountainsRef.put(file).on('state_changed', (snap) => {
                let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
@@ -38,6 +39,7 @@ const Upload = () => {
                console.log(URL.createObjectURL(selected))
                setFile(selected);
                setError("");
+               setUrl(URL.createObjectURL(selected));
           }
           else
           {
@@ -46,6 +48,12 @@ const Upload = () => {
                }
         }
         const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+        useEffect(() => () => {
+          // Make sure to revoke the data uris to avoid memory leaks
+          URL.revokeObjectURL(url)
+        }, [file]);
+
       
 
      return (
@@ -58,7 +66,7 @@ const Upload = () => {
                               (isDragActive ?
                               <p>Drop the files here ...</p> :
                               <p>Drag 'n' drop some files here, or click to select files</p>) :
-                              (file && <p>{file.name}</p>) 
+                              (file && <img src={url} style={{height:"100px",}}/>) 
                          }
                          {
                               (file == null)? error && <div className="error">{error}</div> : <center>{file && <ProgressBar progress={progress} />}</center>
