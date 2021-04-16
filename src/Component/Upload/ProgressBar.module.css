@@ -1,9 +1,19 @@
-*{
-     padding: 0px;
-     margin: 0px;
+* {
+  padding: 0px;
+  margin: 0px;
 }
-.ProgressBar{
-     height: 5px;
-     background-color: brown;
-     
+.ProgressBar {
+  height: 5px;
+  background-color: white;
+  height: 20px;
+  width: 80%;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid #6830c386;
+}
+.status {
+  background-color: rgba(100, 223, 223, 0.582);
+  height: 20px;
+  transition-duration: 0.4s;
+  float: left;
 }

@@ -11,11 +11,17 @@ const Upload = () => {
      const [error, setError] = useState(null);
      const [url, setUrl] = useState(null);
 
+     const [upstyle,setUpStyle] = useState({display:"block"});
+     const [progstyle,setProgStyle] = useState({display:"none"});
+
 
      const types = ["image/jpeg", "image/png", "image/jpg"];
      
      const upload = (e)=>{
           e.preventDefault();
+          setUpStyle({display:"none"});
+          setProgStyle({display:"block"});
+
           var storageRef = firebaseApp.storage().ref();
 
           // Create a reference to 'mountains.jpg'
@@ -44,7 +50,7 @@ const Upload = () => {
           else
           {
                setFile(null);
-               setError("please enter a valid file(png,jpeg");
+               setError("please select a valid image file(png,jpeg)");
                }
         }
         const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
@@ -58,22 +64,34 @@ const Upload = () => {
 
      return (
           <div className={classes.majorContainer}>
-               <form>
-                    <div {...getRootProps()} style={{outline:"none",}}>
-                         <input {...getInputProps()} />
-                         {
-                              (file == null)?
-                              (isDragActive ?
-                              <p>Drop the files here ...</p> :
-                              <p>Drag 'n' drop some files here, or click to select files</p>) :
-                              (file && <img src={url} style={{height:"100px",}}/>) 
-                         }
-                         {
-                              (file == null)? error && <div className="error">{error}</div> : <center>{file && <ProgressBar progress={progress} />}</center>
-                         }
-                    </div>
-                    <button onClick={upload}>upload</button>
-               </form>
+               <div className={classes.heading}>
+                    <p>Upload Your Walpapers</p>
+               </div>
+          
+               <div {...getRootProps()} className={classes.dropZone} style={upstyle}>
+                    <input {...getInputProps()} />
+                    {
+                         (file == null)?
+                         (isDragActive ?
+                         <p>Drop the files here ...</p> :
+                         <p>Drag 'n' drop some files here, or click to select files</p>) :
+                         (file && <img src={url} style={{height:"200px",}}/>) 
+                    }
+               </div>
+               <div className={classes.uploadZone} style={progstyle}>
+                    {(progress==100)? <p>Finished....</p>:<p>Uploading....</p>}
+                    <center><ProgressBar progress={progress}/></center>
+               </div>
+               <div style={{width:"80%",}}>
+                    <button onClick={upload} className={classes.button}>upload</button>
+                    <button onClick={(e)=>{
+                        setFile(null);
+                        setProgress(0);
+                        setUpStyle({display:"block"});
+                        setProgStyle({display:"none"});
+                    }} className={classes.buttonC}>cancel</button>
+               </div>
+          
                
           </div>
           
