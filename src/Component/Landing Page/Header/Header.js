@@ -11,6 +11,12 @@ const Header = ()=>{
         <div className={classes.majorContainer}>
             <div className={classes.modalMajorContainerC} id="modCtn" >
                 <div className={classes.modalContainerC} id="mod">
+                    <p className={classes.closebtn} onClick={(e)=>{
+                        document.getElementById('modCtn').classList.remove(classes.modalMajorContainerO);
+                        document.getElementById('mod').classList.remove(classes.modalContainerO);
+                        document.getElementById('modCtn').classList.add(classes.modalMajorContainerC);
+                        document.getElementById('mod').classList.add(classes.modalContainerC);
+                    }}>X</p>
                     <div className={classes.modalUploadC}>
                         <Upload />
                     </div>
