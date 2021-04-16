@@ -39,10 +39,10 @@ const Upload = () => {
 
      const onDrop = acceptedFiles => {
           var selected = acceptedFiles[0];
-          console.log(selected.type)
+         
           if (selected  && types.includes(selected.type))
           {
-               console.log(URL.createObjectURL(selected))
+               
                setFile(selected);
                setError("");
                setUrl(URL.createObjectURL(selected));
