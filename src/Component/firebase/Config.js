@@ -1,8 +1,5 @@
 import firebase from "firebase";
 
-
-//here
-
 var firebaseConfig = {
   apiKey: "AIzaSyDZC6ZmFA7b1vEU23bbFgnFfD_uOV5MRog",
   authDomain: "wallpaper-5e0d2.firebaseapp.com",
@@ -16,9 +13,6 @@ var firebaseConfig = {
    // Initialize Firebase
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-
-//here
-
 
 const projectStorage = firebaseApp.storage();
 const projectfirestore = firebaseApp.firestore();
