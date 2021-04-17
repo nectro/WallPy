@@ -1,10 +1,10 @@
 import react from "react";
-import classes from "../Login Page/LoginPage.module.css";
+import classes from "../Signup Page/SignupPage.module.css";
 import Logo from "../../Assets/Logo1.svg";
 import Google from "../../Assets/GoogleIcon.svg";
 import {Link} from "react-router-dom";
 
-const LoginPage = ()=>{
+const SignupPage = ()=>{
     return(
         <div className={classes.majorContainer}>
 
@@ -12,13 +12,14 @@ const LoginPage = ()=>{
                 <div className={classes.formContainer}>
                     <div className={classes.form}>
                         <ul>
-                            <li><h2>Login</h2></li>
+                            <li><h2>Signup</h2></li>
+                            <li><input type="text" placeholder="name" /></li>
                             <li><input type="text" placeholder="email" /></li>
                             <li><input type="text" placeholder="password" /></li>
-                            <li><button className={classes.button}>Login</button></li>
+                            <li><button className={classes.button}>Signup</button></li>
                             <li><div className={classes.divider}><hr /><p>or</p><hr /></div></li>
-                            <li><button className={classes.GoogleBtn}><img src={Google} /> <p>Signin with Google</p></button></li>
-                            <li><div className={classes.msg}><p>Don't have an account?</p><Link to="/Signup" className={classes.inmsg}><i>Signup</i></Link></div></li>
+                            <li><button className={classes.GoogleBtn}><img src={Google} /> <p>Signup with Google</p></button></li>
+                            <li><div className={classes.msg}><p>Already have an account?</p><Link to="/Login" className={classes.inmsg}><i>Login</i></Link></div></li>
                         </ul>
                     </div>
                 </div>
@@ -41,4 +42,4 @@ const LoginPage = ()=>{
     )
 }
 
-export default LoginPage;
+export default SignupPage;
