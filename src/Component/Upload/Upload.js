@@ -79,7 +79,7 @@ const Upload = () => {
                     }
                </div>
                <div className={classes.uploadZone} style={progstyle}>
-                    {(progress==100)? <p>Finished....</p>:<p>Uploading....</p>}
+                    {(progress===100)? <p>Finished....</p>:<p>Uploading....</p>}
                     <center><ProgressBar progress={progress}/></center>
                </div>
                <div style={{width:"80%",}}>
@@ -89,7 +89,7 @@ const Upload = () => {
                         setProgress(0);
                         setUpStyle({display:"block"});
                         setProgStyle({display:"none"});
-                    }} className={classes.buttonC}>cancel</button>
+                    }} className={classes.buttonC}>reselect</button>
                </div>
           
                
