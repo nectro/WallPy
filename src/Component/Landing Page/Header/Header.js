@@ -1,12 +1,34 @@
-import react from "react";
+import react, {useState} from "react";
 import classes from "../Header/Header.module.css";
 import Logo from "../../../Assets/Logo1.svg";
 import User from "../../../Assets/User-info.svg";
 import Search from "../../../Assets/search.svg";
 import {Link} from "react-router-dom";
 import Upload from "../../Upload/Upload";
+import {auth, firebaseApp} from "../../firebase/Config";
 
 const Header = ()=>{
+
+    const [authStatus, setAuthStatus] = useState(false);
+
+    auth.onAuthStateChanged(firebaseUser => {
+        if (firebaseUser)
+        {
+            setAuthStatus(true);
+        }
+        else
+        {
+            setAuthStatus(false);
+        }
+    })
+
+    const signOut = ()=>{
+        auth.signOut().then(()=>{
+            alert("you have signed out");
+        })
+    }
+
+
     return(
         <div className={classes.majorContainer}>
             <div className={classes.modalMajorContainerC} id="modCtn" >
@@ -30,7 +52,11 @@ const Header = ()=>{
                     <img src={User} />
                 </div>
                 <div className={classes.loginbtn}>
-                    <Link to="/Login" className={classes.lnk}>Login</Link>
+                    {
+                        (authStatus)? 
+                        <button onClick={signOut} className={classes.lnk} >Logout</button> : 
+                        <Link to="/Login" className={classes.lnk}>Login</Link>
+                    }                    
                 </div>
                 <div className={classes.searchBar}>
                     <input type="text" className={classes.inputText}/>
