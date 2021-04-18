@@ -1,21 +1,34 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import classes from '../AboutUs/AboutUs.module.css'
 import Logo from '../../Assets/Logo.svg'
 import shubham from '../../Assets/shubham.svg'
 import shounak from '../../Assets/shounak 1.svg'
 import samy from '../../Assets/SAM 1.svg'
+import shadow from '../../Assets/shadow.svg'
 import Footer from "../Landing Page/Footer/Footer"
+import {faAngleDoubleDown} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const AboutUs = () => {
+
+
      return (
           <div className={classes.majorContainer}>
                <div className={classes.companyLogo}>
-                    <img src={Logo} />
-                    <div className={classes.content}>Your Wallpaper Your Attitude</div>
+                    <div>
+                         <center>                              
+                              <img src={Logo} />
+                              <div className={classes.content}>Your Wallpaper Your Attitude</div>
+                              <div className={classes.shadow}></div>
+                              <a href="#abt">
+                                   <FontAwesomeIcon icon={faAngleDoubleDown} className={classes.ico}/>
+                              </a>
+                         </center>
+                    </div>
                </div>
 
 
-               <div className={classes.aboutus}>
+               <div className={classes.aboutus} id="abt">
                     <div className={classes.aboutcontent}>
                          <div className={classes.title} >About Us</div>
                          <div className={classes.content} >
