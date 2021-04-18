@@ -51,6 +51,7 @@
   flex-direction: column;
 }
 .aboutcontent {
+  margin-top: 1px;
 }
 .ourteam {
   min-height: 100vh;
