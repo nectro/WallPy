@@ -2,8 +2,10 @@ import react, { useState, useEffect } from "react"
 import ProgressBar from '../Upload/ProgressBar'
 import { projectStorage, firebaseApp } from "../firebase/Config"
 import classes from "../Upload/upload.module.css";
-import {useDropzone} from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
 
+
+/*firebase logic start*/
 const Upload = () => {
 
      const [progress, setProgress] = useState(0);
@@ -14,7 +16,7 @@ const Upload = () => {
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
 
-
+   
      const types = ["image/jpeg", "image/png", "image/jpg"];
      
      const upload = (e)=>{
@@ -23,9 +25,6 @@ const Upload = () => {
           setProgStyle({display:"block"});
 
           var storageRef = firebaseApp.storage().ref();
-
-          // Create a reference to 'mountains.jpg'
-          var mountainsRef = storageRef.child(file.name);
 
           // Create a reference to 'images/mountains.jpg'
           var mountainImagesRef = storageRef.child(`images/+${file.name}`);
@@ -56,7 +55,7 @@ const Upload = () => {
         const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
         useEffect(() => () => {
-          // Make sure to revoke the data uris to avoid memory leaks
+          // Make sure to revoke the data url to avoid memory leaks
           URL.revokeObjectURL(url)
         }, [file]);
 

@@ -3,25 +3,59 @@ import classes from "../Signup Page/SignupPage.module.css";
 import Logo from "../../Assets/Logo1.svg";
 import Google from "../../Assets/GoogleIcon.svg";
 import {Link} from "react-router-dom";
+import { auth, firebaseApp } from "../firebase/Config"
+import { useState, useEffect } from "react"
 
-const SignupPage = ()=>{
+
+
+const SignupPage = () => {
+    
+    const[username,setName]=useState("")
+    const[email,setEmail]=useState("")
+    const [password, setPassword] = useState("")
+    
+    const handlechange = (event) =>
+    {
+        if (event.target.name == "setName")
+        {
+            setName(event.target.value)
+            console.log(username)
+        }
+        if (event.target.name == "setEmail")
+        {
+            setEmail(event.target.value)
+            console.log(email)
+        }
+        if (event.target.name == "setPassword")
+        {
+            setPassword(event.target.value)
+            console.log(password)
+        }
+        
+    }
+
+
+
+
+
+    
     return(
         <div className={classes.majorContainer}>
 
             <div className={classes.main}>
                 <div className={classes.formContainer}>
-                    <div className={classes.form}>
+                    <form className={classes.form}>
                         <ul>
                             <li><h2>Signup</h2></li>
-                            <li><input type="text" placeholder="name" /></li>
-                            <li><input type="text" placeholder="email" /></li>
-                            <li><input type="text" placeholder="password" /></li>
+                            <li><input name="setName" type="text" placeholder="name" onChange={handlechange} value={username}/></li>
+                            <li><input name="setEmail" type="text" placeholder="email" onChange={handlechange} value={email}/></li>
+                            <li><input name="setPassword" type="text" placeholder="password" onChange={handlechange} value={password}/></li>
                             <li><button className={classes.button}>Signup</button></li>
                             <li><div className={classes.divider}><hr /><p>or</p><hr /></div></li>
                             <li><button className={classes.GoogleBtn}><img src={Google} /> <p>Signup with Google</p></button></li>
                             <li><div className={classes.msg}><p>Already have an account?</p><Link to="/Login" className={classes.inmsg}><i>Login</i></Link></div></li>
                         </ul>
-                    </div>
+                    </form>
                 </div>
                 <div className={classes.logoContainer}>
                     <div className={classes.logoQuote}>
