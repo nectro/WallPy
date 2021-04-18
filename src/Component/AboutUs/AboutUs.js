@@ -5,6 +5,7 @@ import shubham from '../../Assets/shubham.svg'
 import shounak from '../../Assets/shounak 1.svg'
 import samy from '../../Assets/SAM 1.svg'
 import shadow from '../../Assets/shadow.svg'
+import aboutUsVector from "../../Assets/abtVec.png"
 import Footer from "../Landing Page/Footer/Footer"
 import {faAngleDoubleDown} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -29,45 +30,52 @@ const AboutUs = () => {
 
 
                <div className={classes.aboutus} id="abt">
+                    {/*<a href='https://www.freepik.com/vectors/business'>Business vector created by freepik - www.freepik.com</a> */}
                     <div className={classes.aboutcontent}>
-                         <div className={classes.title} >About Us</div>
-                         <div className={classes.content} >
-                              Lorem ipsum demo quetes Lorem ipsum
-                              demo quetes Lorem ipsum demo asd 
-                         quetes Lorem ipsum demo  quetes a Lorem ipsum demo quetes Lorem ipsum
-                              demo quetes Lorem ipsum demo asd 
-                         quetes Lorem ipsum demo  quetes a Lorem ipsum demo quetes Lorem ipsum
-                              demo quetes Lorem ipsum demo asd 
-                         quetes Lorem ipsum demo  quetes a Lorem ipsum demo quetes Lorem ipsum
-                              demo quetes Lorem ipsum demo asd 
-                         quetes Lorem ipsum demo  quetes a Lorem ipsum demo quetes Lorem ipsum
-                              demo quetes Lorem ipsum demo asd 
-                         quetes Lorem ipsum demo  quetes a  </div>
+                         <div className={classes.image}>
+                              <a href='https://www.freepik.com/vectors/business'>
+                                   <img src={aboutUsVector} />
+                              </a>
+
+                         </div>
+                         <div className={classes.texts}>
+                              <div className={classes.textContent}>
+                                   <div className={classes.title} >About Us</div>
+                                   <div className={classes.abtContent} >
+                                   Welcome to Wallpy, your number one source for  of wallpapers. We're dedicated to providing you the best wallpapers for your device, with a focus on your likings, dependability and compatibility.
+                                   </div>
+                              </div>
+                         </div>
                     </div>
                </div>
 
 
                <div className={classes.ourteam}>
-                    <div className={classes.ourteamcontent}>
-                         <div className={classes.title}>Our Team</div>
-                         <div className={classes.content}>
+                    <div className={classes.ourTeamContent}>
+                         <div className={classes.title}>
+                              Our Team
+                         </div>
+                         <div className={classes.memberContent}>
                               <div className={classes.memberinfo}>
                                    <img className={classes.memberpic} src={samy} />
-                                   <p>Lorem ipsum demo quetes Lorem ipsum
-                              demo quetes Lorem ipsum demo asd 
-                         quetes Lorem ipsum demo  quetes a Lorem ipsum demo quetes</p>
+                                   <p>
+                                        <b>Samaresh Samanta (CEO)</b><br/>
+                                        A student of SRM University, has a thirst of digging out new idea and implement them in real.
+                                   </p>
                               </div>
-                              <div className={classes.memberinfo} >
-                                   <p>Lorem ipsum demo quetes Lorem ipsum
-                                   demo quetes Lorem ipsum demo asd 
-                         quetes Lorem ipsum demo  quetes a Lorem ipsum demo quetes</p>
-                         <img className={classes.memberpic} src={shubham} />
+                              <div className={classes.memberinfo1} >
+                                   <img className={classes.memberpic} src={shubham} />
+                                   <p>
+                                        <b>Shubham Samanta (COO)</b><br/>
+                                        A student of NIT Durgapur, has a thirst of digging out new idea and implement them in real.
+                                   </p>
                               </div>
                               <div className={classes.memberinfo}> 
                                    <img className={classes.memberpic} src={shounak} />
-                                   <p>Lorem ipsum demo quetes Lorem ipsum
-                              demo quetes Lorem ipsum demo asd 
-                         quetes Lorem ipsum demo  quetes a Lorem ipsum demo quetes</p>
+                                   <p>
+                                        <b>Shounak Chatterjee (CFO)</b><br/>
+                                        A student of SRM University, has a thirst of digging out new idea and implement them in real.
+                                   </p>
                               </div>
                          </div>
                     </div>

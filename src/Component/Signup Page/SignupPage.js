@@ -38,16 +38,7 @@ const SignupPage = () => {
             console.log(errorMessage);
         });
     }
-    auth.onAuthStateChanged(firebaseUser => {
-        if (firebaseUser)
-        {
-            setAuth(true);
-        }
-        else
-        {
-            setAuth(false);
-        }
-})
+    
 
     
     if (authyep) {
