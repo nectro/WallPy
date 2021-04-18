@@ -14,7 +14,7 @@ const SignupPage = () => {
     const[email,setEmail]=useState("")
     const [password, setPassword] = useState("")
     
-    const handlechange = (event) =>
+    const userinput = (event) =>
     {
         if (event.target.name == "setName")
         {
@@ -34,11 +34,26 @@ const SignupPage = () => {
         
     }
 
+    const signupclicked = (e) =>
+    {
+        e.preventDefault();
+        const promise = auth.createUserWithEmailAndPassword(email, password)
+        promise.catch(e=>{console.log(e.message)})
+        console.log("clicked on signup button")
+    }
+    auth.onAuthStateChanged(firebaseUser => {
+        if (firebaseUser)
+        {
+            console.log(firebaseUser.uid)
+        }
+        else
+        {
+            console.log("not logged in")
+        }
+})
 
 
 
-
-    
     return(
         <div className={classes.majorContainer}>
 
@@ -47,10 +62,10 @@ const SignupPage = () => {
                     <form className={classes.form}>
                         <ul>
                             <li><h2>Signup</h2></li>
-                            <li><input name="setName" type="text" placeholder="name" onChange={handlechange} value={username}/></li>
-                            <li><input name="setEmail" type="text" placeholder="email" onChange={handlechange} value={email}/></li>
-                            <li><input name="setPassword" type="text" placeholder="password" onChange={handlechange} value={password}/></li>
-                            <li><button className={classes.button}>Signup</button></li>
+                            <li><input name="setName" type="text" placeholder="name" onChange={userinput} value={username}/></li>
+                            <li><input name="setEmail" type="text" placeholder="email" onChange={userinput} value={email}/></li>
+                            <li><input name="setPassword" type="text" placeholder="password" onChange={userinput} value={password}/></li>
+                            <li><button className={classes.button} onClick={signupclicked}>Signup</button></li>
                             <li><div className={classes.divider}><hr /><p>or</p><hr /></div></li>
                             <li><button className={classes.GoogleBtn}><img src={Google} /> <p>Signup with Google</p></button></li>
                             <li><div className={classes.msg}><p>Already have an account?</p><Link to="/Login" className={classes.inmsg}><i>Login</i></Link></div></li>
