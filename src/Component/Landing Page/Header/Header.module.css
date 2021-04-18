@@ -59,10 +59,15 @@
 .lnk {
   text-decoration: none;
   color: #fff;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 16px;
 }
 .lnk:hover {
   color: #64dfdf;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 .searchBar {
   margin-right: 20px;

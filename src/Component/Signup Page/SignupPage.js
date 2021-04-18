@@ -38,16 +38,16 @@ const SignupPage = () => {
             console.log(errorMessage);
         });
     }
-    /*auth.onAuthStateChanged(firebaseUser => {
+    auth.onAuthStateChanged(firebaseUser => {
         if (firebaseUser)
         {
-            console.log(firebaseUser.uid)
+            setAuth(true);
         }
         else
         {
-            console.log("not logged in")
+            setAuth(false);
         }
-})*/
+})
 
     
     if (authyep) {
