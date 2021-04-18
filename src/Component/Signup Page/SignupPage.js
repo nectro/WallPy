@@ -11,34 +11,32 @@ import { Redirect } from 'react-router-dom';
 
 const SignupPage = () => {
     
-    const[username,setName]=useState("")
-    const[email,setEmail]=useState("")
+    const [username, setName] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [authyep, setAuth] = useState(false);
     
     
 
-    const signupclicked = (e) =>
-    {
+    const signupclicked = (e) => {
         e.preventDefault();
         /*const promise = auth.createUserWithEmailAndPassword(email, password)
         promise.catch(e=>{console.log(e.message)})
         console.log("clicked on signup button")*/
         auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Signed in
-            var user = userCredential.user;
-            console.log(user.uid);
-            setAuth(true);
-            // ...
-        })
-        .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorMessage);
-        });
+            .then((userCredential) => {
+                // Signed in
+                var user = userCredential.user;
+                console.log(user.uid);
+                setAuth(true);
+                // ...
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.log(errorMessage);
+            });
     }
-    
 
     
     if (authyep) {
@@ -47,7 +45,7 @@ const SignupPage = () => {
         )
     }
     else {
-
+        
 
         return (
             <div className={classes.majorContainer}>
@@ -65,13 +63,13 @@ const SignupPage = () => {
                                     value={username} /></li>
                                 <li><input
                                     name="setEmail"
-                                    type="text"
+                                    type="email"
                                     placeholder="email"
                                     onChange={(event) => { setEmail(event.target.value) }}
                                     value={email} /></li>
                                 <li><input
                                     name="setPassword"
-                                    type="text"
+                                    type="password"
                                     placeholder="password"
                                     onChange={(event) => { setPassword(event.target.value) }}
                                     value={password} /></li>
@@ -99,6 +97,7 @@ const SignupPage = () => {
 
             </div>
         )
+    
     }
 }
 
