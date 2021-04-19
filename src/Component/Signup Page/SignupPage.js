@@ -3,7 +3,7 @@ import classes from "../Signup Page/SignupPage.module.css";
 import Logo from "../../Assets/Logo1.svg";
 import Google from "../../Assets/GoogleIcon.svg";
 import {Link} from "react-router-dom";
-import { auth, firebaseApp } from "../firebase/Config"
+import { auth, firebaseApp,projectfirestore } from "../firebase/Config"
 import { useState, useEffect } from "react"
 import { Redirect } from 'react-router-dom';
 
@@ -29,6 +29,9 @@ const SignupPage = () => {
                 var user = userCredential.user;
                 console.log(user.uid);
                 setAuth(true);
+                return projectfirestore.collection('users').doc(user.uid).set({
+                    name: username,
+                email:email});
                 // ...
             })
             .catch((error) => {
