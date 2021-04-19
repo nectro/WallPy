@@ -34,19 +34,17 @@ const LoginPage = () => {
                 var errorCode = error.code;
                 if (password!=""&&email!="") {
                     if (errorCode=="auth/wrong-password") {
-                        setError("Wrong Password")
+                        alert("Wrong Password")
                     }
                     if (errorCode=="auth/user-not-found") {
-                        setError("please signup")
+                        alert("please signup")
                     }
-                    if (errorCode=="auth/invalid-email") {
-    
-                        setError("wrong format of email-id")
+                    if (errorCode=="auth/invalid-email") {    
+                        alert("wrong format of email-id")
                     }
                 }
-                else
-                {
-                    setError("enter all credentials")
+                else {
+                    alert("enter all credentials")
                 }
                 
             });
@@ -59,12 +57,6 @@ const LoginPage = () => {
             setAuth(false);
         }
     })
-    useEffect(()=>{
-        if(err){
-        alert(err);
-        }
-
-    }, [err])
 
     
     if (authyep) {
