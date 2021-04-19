@@ -16,6 +16,7 @@
   margin-top: 14px;
   font-family: "Prata";
   color: rgba(255, 255, 255, 0.575);
+  animation: float 6s ease-in-out infinite;
 }
 .companyLogo {
   height: 100vh;
@@ -26,13 +27,48 @@
 }
 .companyLogo img {
   height: 110px;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 .shadow {
   margin-top: 60px;
   width: 240px;
-  border-radius: 2px;
-  box-shadow: 0px 0px 10px 0.5px #000;
+  height: 7px;
+  border-radius: 240px / 7px;
+  background-color: rgba(0, 0, 0, 0.082);
+  animation: size 6s ease-in-out infinite;
 }
+
+@keyframes size {
+  0% {
+    width: 190px;
+    border-radius: 190px / 7px;
+  }
+
+  50% {
+    width: 240px;
+    border-radius: 240px / 7px;
+  }
+
+  100% {
+    width: 190px;
+    border-radius: 190px / 7px;
+  }
+}
+
 .ico {
   position: absolute;
   bottom: 20px;
