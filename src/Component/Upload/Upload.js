@@ -43,7 +43,7 @@ const Upload = () => {
           {
                
                setFile(selected);
-               setError("");
+               setError(null);
                setUrl(URL.createObjectURL(selected));
           }
           else
@@ -70,10 +70,11 @@ const Upload = () => {
                <div {...getRootProps()} className={classes.dropZone} style={upstyle}>
                     <input {...getInputProps()} />
                     {
-                         (file == null)?
+                         (file === null)?
                          (isDragActive ?
                          <p>Drop the files here ...</p> :
-                         <p>Drag 'n' drop some files here, or click to select files</p>) :
+                         (error? <p style={{color:"#df6464",}}>{error}</p> :
+                         <p>Drag 'n' drop some files here, or click to select files</p>)) :
                          (file && <img src={url} style={{height:"200px",}}/>) 
                     }
                </div>
@@ -82,13 +83,15 @@ const Upload = () => {
                     <center><ProgressBar progress={progress}/></center>
                </div>
                <div style={{width:"80%",}}>
-                    <button onClick={upload} className={classes.button}>upload</button>
+                    <button onClick={upload} className={classes.button} disabled={file === null}>upload</button>
                     <button onClick={(e)=>{
                         setFile(null);
                         setProgress(0);
                         setUpStyle({display:"block"});
                         setProgStyle({display:"none"});
-                    }} className={classes.buttonC}>reselect</button>
+                    }} className={classes.buttonC}>
+                         reselect
+                    </button>
                </div>
           
                

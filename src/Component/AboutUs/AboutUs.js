@@ -59,21 +59,21 @@ const AboutUs = () => {
                               <div className={classes.memberinfo}>
                                    <img className={classes.memberpic} src={samy} />
                                    <p>
-                                        <b>Samaresh Samanta (CEO)</b><br/>
+                                        <b>Samaresh Samanta</b><br/>
                                         A student of SRM University, has a thirst of digging out new idea and implement them in real.
                                    </p>
                               </div>
                               <div className={classes.memberinfo1} >
                                    <img className={classes.memberpic} src={shubham} />
                                    <p>
-                                        <b>Shubham Samanta (COO)</b><br/>
+                                        <b>Shubham Samanta</b><br/>
                                         A student of NIT Durgapur, has a thirst of digging out new idea and implement them in real.
                                    </p>
                               </div>
                               <div className={classes.memberinfo}> 
                                    <img className={classes.memberpic} src={shounak} />
                                    <p>
-                                        <b>Shounak Chatterjee (CFO)</b><br/>
+                                        <b>Shounak Chatterjee</b><br/>
                                         A student of SRM University, has a thirst of digging out new idea and implement them in real.
                                    </p>
                               </div>
