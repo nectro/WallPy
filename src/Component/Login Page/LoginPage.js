@@ -14,7 +14,7 @@ const LoginPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [authyep, setAuth] = useState(false);
-    const [error, setError] = useState("");
+    const [err, setError] = useState("");
     
 
     const loginclicked = (e) => {
@@ -47,7 +47,7 @@ const LoginPage = () => {
                 else
                 {
                     setError("enter all credentials")
-                    }
+                }
                 
             });
     }
@@ -59,6 +59,12 @@ const LoginPage = () => {
             setAuth(false);
         }
     })
+    useEffect(()=>{
+        if(err){
+        alert(err);
+        }
+
+    }, [err])
 
     
     if (authyep) {
@@ -85,7 +91,6 @@ const LoginPage = () => {
                                     onChange={(event) => { setPassword(event.target.value) }}
                                     value={password} /></li>
                                 <li><button className={classes.button} onClick={loginclicked}>Login</button></li>
-                                <li><div ><hr /><p>{error}</p><hr /></div></li>
                                 <li><div className={classes.divider}><hr /><p>or</p><hr /></div></li>
                                 <li><button className={classes.GoogleBtn}><img src={Google} /> <p>Signin with Google</p></button></li>
                                 <li><div className={classes.msg}><p>Don't have an account?</p><Link to="/Signup" className={classes.inmsg}><i>Signup</i></Link></div></li>
