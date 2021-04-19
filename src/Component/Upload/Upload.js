@@ -1,6 +1,6 @@
 import react, { useState, useEffect } from "react"
 import ProgressBar from '../Upload/ProgressBar'
-import { projectStorage, firebaseApp } from "../firebase/Config"
+import { projectStorage, firebaseApp ,projectfirestore,timestamp} from "../firebase/Config"
 import classes from "../Upload/upload.module.css";
 import { useDropzone } from 'react-dropzone'
 
@@ -12,7 +12,7 @@ const Upload = () => {
      const [file, setFile] = useState(null);
      const [error, setError] = useState(null);
      const [url, setUrl] = useState(null);
-
+     const [firebaseurl, setfirebaseUrl] = useState(null);
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
 
@@ -25,17 +25,27 @@ const Upload = () => {
           setProgStyle({display:"block"});
 
           var storageRef = firebaseApp.storage().ref();
-
-          // Create a reference to 'images/mountains.jpg'
+          const uploadRef = projectfirestore.collection('upload');
           var mountainImagesRef = storageRef.child(`images/+${file.name}`);
           
-
           mountainImagesRef .put(file).on('state_changed', (snap) => {
                let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
                setProgress(percentage)
-             });
-     }
 
+          },
+               (err) => {
+                    setError(err);
+               }, async () => {
+                    const Url = await mountainImagesRef.getDownloadURL();
+                    const createdAt = timestamp();
+                    uploadRef.doc(file.name).set({
+                         url: Url,
+                    createdAt:createdAt})
+                    console.log(Url)
+                    setfirebaseUrl(Url)
+                    
+               });
+     }
      const onDrop = acceptedFiles => {
           var selected = acceptedFiles[0];
          
