@@ -55,7 +55,7 @@ const Header = ()=>{
                     {
                         (authStatus)? 
                         <button onClick={signOut} className={classes.lnk} >Logout</button> : 
-                        <Link to="/Login" className={classes.lnk}>Login</Link>
+                        <Link to="/User/login" className={classes.lnk}>Login</Link>
                     }                    
                 </div>
                 <div className={classes.searchBar}>

@@ -5,6 +5,7 @@ import LoginPage from "../src/Component/Login Page/LoginPage";
 import SignupPage from "../src/Component/Signup Page/SignupPage";
 import Upload from './Component/Upload/Upload';
 import AboutUs from './Component/AboutUs/AboutUs';
+import User from './Component/alter login/user'
 import {AnimatePresence, motion} from 'framer-motion';
 //https://colorhunt.co/palette/253094 ------>the color theme used
 
@@ -22,6 +23,11 @@ function App() {
           </Route>
           <Route path="/Signup" >
             <SignupPage />
+          </Route>
+          <Route path="/User" >
+            <AnimatePresence>
+              <User />
+            </AnimatePresence>
           </Route>
           <Route path="/AboutUs">
             <AnimatePresence>

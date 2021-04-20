@@ -142,7 +142,8 @@
   padding: 40px 50px;
 }
 .memberinfo img {
-  width: 180px;
+  height: 180px;
+  border-radius: 180px;
 }
 .memberinfo p {
   margin-top: -20px;
@@ -160,6 +161,7 @@
 }
 .memberinfo1 img {
   width: 180px;
+  border-radius: 180px;
 }
 .memberinfo1 p {
   margin-top: -20px;

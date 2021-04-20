@@ -3,7 +3,7 @@ import classes from '../AboutUs/AboutUs.module.css'
 import Logo from '../../Assets/Logo.svg'
 import shubham from '../../Assets/shubham.svg'
 import shounak from '../../Assets/shounak 1.svg'
-import samy from '../../Assets/SAM 1.svg'
+import samy from '../../Assets/samar.jfif'
 import shadow from '../../Assets/shadow.svg'
 import aboutUsVector from "../../Assets/abtVec.png"
 import Footer from "../Landing Page/Footer/Footer"
@@ -66,7 +66,7 @@ const AboutUs = () => {
                               <div className={classes.memberContent}>
                                    <div className={classes.memberinfo}>
                                         <Fade direction="left" triggerOnce="true">
-                                             <img className={classes.memberpic} />
+                                             <img className={classes.memberpic} src={samy}/>
                                         </Fade>
                                         <Fade direction="right" triggerOnce="true">
                                              <p>
