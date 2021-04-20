@@ -4,7 +4,13 @@
   scroll-behavior: smooth;
 }
 .majorContainer {
-  background-color: #6830c3;
+  background: linear-gradient(
+    180deg,
+    rgb(75, 44, 126) 0%,
+    rgba(104, 48, 195, 1) 43%,
+    rgb(109, 60, 187) 70%,
+    rgba(104, 48, 195, 1) 100%
+  );
 }
 .title {
   font-size: 24px;
@@ -124,6 +130,7 @@
 .ourteam {
   display: flex;
   justify-content: center;
+  margin-bottom: 45px;
 }
 .ourTeamContent {
   width: 90%;
