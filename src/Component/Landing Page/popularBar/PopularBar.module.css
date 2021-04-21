@@ -3,7 +3,12 @@
   padding: 0px;
 }
 .majorContainer {
-  background-color: #252525;
+  /*background-color: #252525;*/
+  /*background: linear-gradient(
+    180deg,
+    rgba(64, 38, 105, 1) 0%,
+    rgba(64, 38, 105, 1) 100%
+  );*/
   height: 45px;
   margin-top: -1px;
   padding-right: 30px;

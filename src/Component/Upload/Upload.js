@@ -6,7 +6,7 @@ import { useDropzone } from 'react-dropzone'
 
 
 /*firebase logic start*/
-const Upload = () => {
+const Upload = (props) => {
 
      const [progress, setProgress] = useState(0);
      const [file, setFile] = useState(null);
@@ -15,6 +15,7 @@ const Upload = () => {
      const [firebaseurl, setfirebaseUrl] = useState(null);
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
+     const {setModal}=props;
 
    
      const types = ["image/jpeg", "image/png", "image/jpg"];
@@ -53,7 +54,7 @@ const Upload = () => {
           {
                
                setFile(selected);
-               setError("");
+               setError(null);
                setUrl(URL.createObjectURL(selected));
           }
           else
@@ -69,6 +70,20 @@ const Upload = () => {
           URL.revokeObjectURL(url)
         }, [file]);
 
+        useEffect(()=>{
+             if(progress === 100){
+                  setTimeout(()=>{
+                       setFile(null);
+                       setModal(false);  
+                  },1000)
+                  setTimeout(()=>{
+                    setUpStyle({display:"block"});
+                    setProgStyle({display:"none"});
+                    setProgress(0); 
+                  }, 2000)
+             }
+
+        }, [progress])
       
 
      return (
@@ -80,10 +95,11 @@ const Upload = () => {
                <div {...getRootProps()} className={classes.dropZone} style={upstyle}>
                     <input {...getInputProps()} />
                     {
-                         (file == null)?
+                         (file === null)?
                          (isDragActive ?
                          <p>Drop the files here ...</p> :
-                         <p>Drag 'n' drop some files here, or click to select files</p>) :
+                         (error? <p style={{color:"#df6464",}}>{error}</p> :
+                         <p>Drag 'n' drop some files here, or click to select files</p>)) :
                          (file && <img src={url} style={{height:"200px",}}/>) 
                     }
                </div>
@@ -92,13 +108,16 @@ const Upload = () => {
                     <center><ProgressBar progress={progress}/></center>
                </div>
                <div style={{width:"80%",}}>
-                    <button onClick={upload} className={classes.button}>upload</button>
+                    <button onClick={upload} className={classes.button} disabled={file === null}>upload</button>
                     <button onClick={(e)=>{
                         setFile(null);
                         setProgress(0);
                         setUpStyle({display:"block"});
                         setProgStyle({display:"none"});
-                    }} className={classes.buttonC}>reselect</button>
+                        setModal(false);
+                    }} className={classes.buttonC}>
+                         Cancel
+                    </button>
                </div>
           
                

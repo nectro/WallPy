@@ -31,7 +31,9 @@ const SignupPage = () => {
                 setAuth(true);
                 return projectfirestore.collection('users').doc(user.uid).set({
                     name: username,
-                email:email});
+                    email:email,
+                    interests:[],
+                });
                 // ...
             })
             .catch((error) => {

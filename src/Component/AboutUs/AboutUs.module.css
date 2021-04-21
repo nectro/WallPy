@@ -4,7 +4,13 @@
   scroll-behavior: smooth;
 }
 .majorContainer {
-  background-color: #404040;
+  background: linear-gradient(
+    180deg,
+    rgb(75, 44, 126) 0%,
+    rgba(104, 48, 195, 1) 43%,
+    rgb(109, 60, 187) 70%,
+    rgba(104, 48, 195, 1) 100%
+  );
 }
 .title {
   font-size: 24px;
@@ -16,6 +22,7 @@
   margin-top: 14px;
   font-family: "Prata";
   color: rgba(255, 255, 255, 0.575);
+  animation: float 6s ease-in-out infinite;
 }
 .companyLogo {
   height: 100vh;
@@ -26,13 +33,48 @@
 }
 .companyLogo img {
   height: 110px;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 .shadow {
   margin-top: 60px;
   width: 240px;
-  border-radius: 2px;
-  box-shadow: 0px 0px 10px 0.5px #000;
+  height: 7px;
+  border-radius: 240px / 7px;
+  background-color: rgba(0, 0, 0, 0.082);
+  animation: size 6s ease-in-out infinite;
 }
+
+@keyframes size {
+  0% {
+    width: 190px;
+    border-radius: 190px / 7px;
+  }
+
+  50% {
+    width: 240px;
+    border-radius: 240px / 7px;
+  }
+
+  100% {
+    width: 190px;
+    border-radius: 190px / 7px;
+  }
+}
+
 .ico {
   position: absolute;
   bottom: 20px;
@@ -88,6 +130,7 @@
 .ourteam {
   display: flex;
   justify-content: center;
+  margin-bottom: 45px;
 }
 .ourTeamContent {
   width: 90%;
@@ -99,7 +142,8 @@
   padding: 40px 50px;
 }
 .memberinfo img {
-  width: 180px;
+  height: 180px;
+  border-radius: 180px;
 }
 .memberinfo p {
   margin-top: -20px;
@@ -117,6 +161,7 @@
 }
 .memberinfo1 img {
   width: 180px;
+  border-radius: 180px;
 }
 .memberinfo1 p {
   margin-top: -20px;

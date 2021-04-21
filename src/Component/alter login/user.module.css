@@ -1,0 +1,80 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+.majorContainer {
+  background: linear-gradient(
+    180deg,
+    rgb(63, 36, 105) 0%,
+    rgba(104, 48, 195, 1) 60%,
+    rgb(109, 60, 187) 70%,
+    rgba(104, 48, 195, 1) 100%
+  );
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "logo form";
+}
+.logoDisplay {
+  grid-area: logo;
+  height: 100vh;
+}
+.logoContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.logoContainer img {
+  height: 110px;
+  margin-top: -60px;
+}
+.border {
+  width: 2px;
+  height: 340px;
+  margin-top: calc(50vh - 170px);
+  float: right;
+  background-color: #c8f1f14b;
+}
+.content {
+  font-size: 18px;
+  margin-top: 14px;
+  font-family: "Prata";
+  color: rgba(255, 255, 255, 0.575);
+  animation: float 6s ease-in-out infinite;
+}
+.forms {
+  grid-area: form;
+  height: 100vh;
+}
+
+@media screen and (max-width: 750px) {
+  .border {
+    display: none;
+  }
+  .majorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .logoDisplay {
+    height: fit-content;
+  }
+  .logoContainer {
+    height: fit-content;
+    margin-top: 0px;
+  }
+  .logoContainer img {
+    height: 85px;
+  }
+  .content {
+    font-size: 12px;
+  }
+  .forms {
+    height: fit-content;
+    width: 100%;
+    margin-top: 70px;
+  }
+}
