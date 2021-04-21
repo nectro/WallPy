@@ -9,7 +9,7 @@ import {motion} from "framer-motion";
 const LandingPage = ()=>{
     return(
         <motion.div className={classes.majorContainer}
-            initial={{opacity:0.8}}
+            initial={{opacity:0.9}}
             animate={{opacity:1}}
         >
             <BackgroundImage />
