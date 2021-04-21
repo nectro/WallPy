@@ -57,13 +57,13 @@ const Header = ()=>{
                         <button onClick={signOut} className={classes.lnk} >Logout</button> : 
                         <Link to="/User/login" className={classes.lnk}>Login</Link>
                     }                    
-                </div>
+                </div>{/*
                 <div className={classes.searchBar}>
                     <input type="text" className={classes.inputText}/>
                     <button className={classes.button}>
                         <img src={Search} />
                     </button>
-                </div>
+                </div>*/}
                 <div className={classes.Submit}>
                     <button onClick={(e)=>{
                         document.getElementById('modCtn').classList.remove(classes.modalMajorContainerC);
@@ -72,7 +72,7 @@ const Header = ()=>{
                         document.getElementById('mod').classList.add(classes.modalContainerO);
                     }}
                     >
-                        Upload
+                        Submit your wallpaper
                     </button>
                 </div>
             </div>

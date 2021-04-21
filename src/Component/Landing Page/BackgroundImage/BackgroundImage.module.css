@@ -2,20 +2,29 @@
   border: 0px;
   margin: 0px;
 }
-.imgContainer {
+.majorContainer {
   margin: 0px;
-  height: calc(100vh - 105px);
-  background: linear-gradient(
+  height: calc(100vh - 0px);
+  /*background: linear-gradient(
       rgba(104, 48, 195, 0.15),
       rgba(104, 48, 195, 0.15)
     ),
-    url(../../../Assets/Wallpaper.png);
+    url(../../../Assets/Wallpaper.png);*/
+  background: linear-gradient(
+    180deg,
+    rgba(64, 38, 105, 1) 0%,
+    rgba(104, 48, 195, 0.349) 30%,
+    rgba(104, 48, 195, 0.205) 100%
+  );
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
+}
+.imgContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: calc(100vh - 105px);
 }
 .bottomBar {
   height: 30px;

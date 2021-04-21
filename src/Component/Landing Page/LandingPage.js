@@ -8,8 +8,6 @@ import Footer from "./Footer/Footer";
 const LandingPage = ()=>{
     return(
         <div className={classes.majorContainer}>
-            <Header />
-            <PopularBar />
             <BackgroundImage />
             <Catalog />
             <Footer />
