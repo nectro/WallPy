@@ -6,7 +6,7 @@ import { useDropzone } from 'react-dropzone'
 
 
 /*firebase logic start*/
-const Upload = () => {
+const Upload = (props) => {
 
      const [progress, setProgress] = useState(0);
      const [file, setFile] = useState(null);
@@ -15,6 +15,7 @@ const Upload = () => {
      const [firebaseurl, setfirebaseUrl] = useState(null);
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
+     const {setModal}=props;
 
    
      const types = ["image/jpeg", "image/png", "image/jpg"];
@@ -69,6 +70,20 @@ const Upload = () => {
           URL.revokeObjectURL(url)
         }, [file]);
 
+        useEffect(()=>{
+             if(progress === 100){
+                  setTimeout(()=>{
+                       setFile(null);
+                       setModal(false);  
+                  },1000)
+                  setTimeout(()=>{
+                    setUpStyle({display:"block"});
+                    setProgStyle({display:"none"});
+                    setProgress(0); 
+                  }, 2000)
+             }
+
+        }, [progress])
       
 
      return (
@@ -99,8 +114,9 @@ const Upload = () => {
                         setProgress(0);
                         setUpStyle({display:"block"});
                         setProgStyle({display:"none"});
+                        setModal(false);
                     }} className={classes.buttonC}>
-                         reselect
+                         Cancel
                     </button>
                </div>
           

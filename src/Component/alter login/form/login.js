@@ -10,7 +10,6 @@ const Login = ()=>{
             <motion.div className={classes.form}
                 initial={{x:400}}
                 animate={{x:"0%"}}
-                exit={{x:400}}
             >
                 <ul>
                     <li><h3>Login</h3></li>

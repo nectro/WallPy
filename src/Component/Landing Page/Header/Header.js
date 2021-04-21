@@ -6,10 +6,13 @@ import Search from "../../../Assets/search.svg";
 import {Link} from "react-router-dom";
 import Upload from "../../Upload/Upload";
 import {auth, firebaseApp} from "../../firebase/Config";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faBars} from "@fortawesome/free-solid-svg-icons"
 
 const Header = ()=>{
 
     const [authStatus, setAuthStatus] = useState(false);
+    const [modal,setModal] = useState(false);
 
     auth.onAuthStateChanged(firebaseUser => {
         if (firebaseUser)
@@ -31,16 +34,10 @@ const Header = ()=>{
 
     return(
         <div className={classes.majorContainer}>
-            <div className={classes.modalMajorContainerC} id="modCtn" >
-                <div className={classes.modalContainerC} id="mod">
-                    <p className={classes.closebtn} onClick={(e)=>{
-                        document.getElementById('modCtn').classList.remove(classes.modalMajorContainerO);
-                        document.getElementById('mod').classList.remove(classes.modalContainerO);
-                        document.getElementById('modCtn').classList.add(classes.modalMajorContainerC);
-                        document.getElementById('mod').classList.add(classes.modalContainerC);
-                    }}>X</p>
+            <div className={modal?classes.modalMajorContainerO:classes.modalMajorContainerC} id="modCtn" >
+                <div className={modal?classes.modalContainerO:classes.modalContainerC} id="mod">
                     <div className={classes.modalUploadC}>
-                        <Upload />
+                        <Upload setModal={setModal}/>
                     </div>
                 </div>
             </div>
@@ -49,7 +46,7 @@ const Header = ()=>{
             </div>
             <div className={classes.UtilityContainer}>
                 <div className={classes.user}>
-                    <img src={User} />
+                    <FontAwesomeIcon icon={faBars} className={classes.icon}/>
                 </div>
                 <div className={classes.loginbtn}>
                     {
@@ -65,12 +62,7 @@ const Header = ()=>{
                     </button>
                 </div>*/}
                 <div className={classes.Submit}>
-                    <button onClick={(e)=>{
-                        document.getElementById('modCtn').classList.remove(classes.modalMajorContainerC);
-                        document.getElementById('mod').classList.remove(classes.modalContainerC);
-                        document.getElementById('modCtn').classList.add(classes.modalMajorContainerO);
-                        document.getElementById('mod').classList.add(classes.modalContainerO);
-                    }}
+                    <button onClick={()=>{setModal(true)}}
                     >
                         Submit your wallpaper
                     </button>

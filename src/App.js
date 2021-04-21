@@ -16,7 +16,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" >
-            <LandingPage />
+            <AnimatePresence>
+              <LandingPage />
+            </AnimatePresence>
           </Route>
           <Route path="/Login" >
             <LoginPage />

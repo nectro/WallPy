@@ -5,13 +5,17 @@ import PopularBar from "./popularBar/PopularBar"
 import BackgroundImage from "./BackgroundImage/BackgroundImage"
 import Catalog from "./Catalog/Catalog"
 import Footer from "./Footer/Footer";
+import {motion} from "framer-motion";
 const LandingPage = ()=>{
     return(
-        <div className={classes.majorContainer}>
+        <motion.div className={classes.majorContainer}
+            initial={{opacity:0.8}}
+            animate={{opacity:1}}
+        >
             <BackgroundImage />
             <Catalog />
             <Footer />
-        </div>
+        </motion.div>
     )
 }
 

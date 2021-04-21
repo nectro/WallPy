@@ -47,10 +47,16 @@
 .user {
   float: right;
 }
-.user img {
-  height: 21px;
+.icon {
+  color: rgba(255, 255, 255, 0.842);
+  font-size: 20px;
   margin-top: 5px;
   margin-right: 10px;
+}
+.icon:hover {
+  cursor: pointer;
+  transition-duration: 0.4s;
+  color: #64dfdf;
 }
 .loginbtn {
   float: right;
