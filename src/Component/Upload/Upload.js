@@ -1,9 +1,9 @@
 import react, { useState, useEffect } from "react"
 import ProgressBar from '../Upload/ProgressBar'
-import { auth, projectStorage, firebaseApp ,projectfirestore,timestamp} from "../firebase/Config"
+import { auth, projectStorage, firebaseApp ,projectfirestore,timestamp,increments} from "../firebase/Config"
 import classes from "../Upload/upload.module.css";
 import { useDropzone } from 'react-dropzone'
-import { firestore } from "reactfire";
+
 
 
 /*firebase logic start*/
@@ -17,7 +17,7 @@ const Upload = (props) => {
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
      const {setModal}=props;
-
+     const [uploadctr,setCTR]=useState(null)
    
      const types = ["image/jpeg", "image/png", "image/jpg"];
      
@@ -42,23 +42,28 @@ const Upload = (props) => {
                     const createdAt = timestamp();
                     uploadRef.doc(file.name).set({
                          url: Url,
-                    createdAt:createdAt})
+                         createdAt: createdAt
+                    })
+                    projectfirestore.collection('users').doc(auth.X).update({
+                         totalupload:increments,    
+                    })
                     setfirebaseUrl(Url)
                });
      }
      
-     auth.onAuthStateChanged(firebaseUser => {
+     /*auth.onAuthStateChanged(firebaseUser => {
           
-          if (firebaseUser&&firebaseurl) {
+          if (firebaseUser && firebaseurl) {
+               console.log(auth.X)
                projectfirestore.collection('users').doc(firebaseUser.uid).update({
-                    totalupload: 4/*projectfirestore.FieldValue.increment(1)*/            
+                    totalupload:increments,    
                })
                setfirebaseUrl(null)
           }
           else {
               console.log("no user")
           }
-      })
+      })*/
   
      
      
