@@ -47,7 +47,10 @@ const Upload = (props) => {
                                   createdAt: createdAt
                              })
                              projectfirestore.collection('users').doc(auth.X).update({
-                                  totalupload:increments,    
+                                  totalupload:increments,  
+                             })
+                             projectfirestore.collection('users').doc(auth.X).collection("photos").doc("pic"+doc.data().totalupload).set({
+                                  url:Url,  
                              })
                              setfirebaseUrl(Url)
                         });
