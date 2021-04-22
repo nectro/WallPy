@@ -53,7 +53,7 @@ const Signup = ()=>{
                         animate={{x:0,}}           
                     >
                         <ul>
-                            <li><h3>Signup</h3></li>
+                            <li><h3>Sign Up</h3></li>
                             <li>
                                 <input 
                                     type="name" 
@@ -75,7 +75,7 @@ const Signup = ()=>{
                                     onChange={(event) => { setPassword(event.target.value) }}
                                 />
                             </li>
-                            <li><button className={classes.button} onClick={signupclicked}>Signup</button></li>
+                            <li><button className={classes.button} onClick={signupclicked}>Sign Up</button></li>
                             <li><p className={classes.msg}>Already have an account?</p><Link to="/User/login" className={classes.link}><i>Login</i></Link></li>
                         </ul>
                     </motion.div>
