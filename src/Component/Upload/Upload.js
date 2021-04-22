@@ -1,8 +1,9 @@
 import react, { useState, useEffect } from "react"
 import ProgressBar from '../Upload/ProgressBar'
-import { projectStorage, firebaseApp ,projectfirestore,timestamp} from "../firebase/Config"
+import { auth, projectStorage, firebaseApp ,projectfirestore,timestamp} from "../firebase/Config"
 import classes from "../Upload/upload.module.css";
 import { useDropzone } from 'react-dropzone'
+import { firestore } from "reactfire";
 
 
 /*firebase logic start*/
@@ -42,11 +43,26 @@ const Upload = (props) => {
                     uploadRef.doc(file.name).set({
                          url: Url,
                     createdAt:createdAt})
-                    console.log(Url)
                     setfirebaseUrl(Url)
+                    gili()
                     
                });
      }
+     function gili ()  {
+     console.log("hello")
+     }
+     /*auth.onAuthStateChanged(firebaseUser => {
+          if (firebaseUser&&firebaseurl) {
+               console.log(firebaseUser.uid)
+               projectfirestore.collection('users').doc(firebaseUser.uid).update({
+                    totalupload:8
+               })
+          }
+          else {
+              console.log("no user")
+          }
+      })
+  */
      const onDrop = acceptedFiles => {
           var selected = acceptedFiles[0];
          

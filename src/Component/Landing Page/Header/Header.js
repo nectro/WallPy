@@ -18,6 +18,7 @@ const Header = ()=>{
         if (firebaseUser)
         {
             setAuthStatus(true);
+
         }
         else
         {
