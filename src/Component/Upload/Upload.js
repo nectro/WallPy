@@ -17,7 +17,7 @@ const Upload = (props) => {
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
      const {setModal}=props;
-     const [uploadctr,setCTR]=useState(null)
+    
    
      const types = ["image/jpeg", "image/png", "image/jpg"];
      
@@ -25,45 +25,42 @@ const Upload = (props) => {
           e.preventDefault();
           setUpStyle({display:"none"});
           setProgStyle({display:"block"});
-
-          var storageRef = firebaseApp.storage().ref();
-          const uploadRef = projectfirestore.collection('upload');
-          var mountainImagesRef = storageRef.child(`images/+${file.name}`);
           
-          mountainImagesRef .put(file).on('state_changed', (snap) => {
-               let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
-               setProgress(percentage)
+          var docRef = projectfirestore.collection('users').doc(auth.X);
+          docRef.get().then((doc)=>{
+              if(doc.exists){
+                   var storageRef = firebaseApp.storage().ref();
+                   const uploadRef = projectfirestore.collection('upload');
+                   var mountainImagesRef = storageRef.child(`images/${auth.X}${doc.data().totalupload}`);
+                   mountainImagesRef .put(file).on('state_changed', (snap) => {
+                        let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
+                        setProgress(percentage)
+         
+                   },
+                        (err) => {
+                             setError(err);
+                        }, async () => {
+                             const Url = await mountainImagesRef.getDownloadURL();
+                             const createdAt = timestamp();
+                             uploadRef.doc(auth.X+""+doc.data().totalupload).set({
+                                  url: Url,
+                                  createdAt: createdAt
+                             })
+                             projectfirestore.collection('users').doc(auth.X).update({
+                                  totalupload:increments,    
+                             })
+                             setfirebaseUrl(Url)
+                        });
 
-          },
-               (err) => {
-                    setError(err);
-               }, async () => {
-                    const Url = await mountainImagesRef.getDownloadURL();
-                    const createdAt = timestamp();
-                    uploadRef.doc(file.name).set({
-                         url: Url,
-                         createdAt: createdAt
-                    })
-                    projectfirestore.collection('users').doc(auth.X).update({
-                         totalupload:increments,    
-                    })
-                    setfirebaseUrl(Url)
-               });
+
+              }else{
+                  console.log("doesn't exists")
+              }
+          })
+    
+        
      }
-     
-     /*auth.onAuthStateChanged(firebaseUser => {
-          
-          if (firebaseUser && firebaseurl) {
-               console.log(auth.X)
-               projectfirestore.collection('users').doc(firebaseUser.uid).update({
-                    totalupload:increments,    
-               })
-               setfirebaseUrl(null)
-          }
-          else {
-              console.log("no user")
-          }
-      })*/
+    
   
      
      
