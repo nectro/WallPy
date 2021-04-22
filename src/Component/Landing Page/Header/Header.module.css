@@ -186,3 +186,51 @@
   border-radius: 8px;
   box-shadow: 0px 1px 10px #252525;
 }
+
+/*-------the nav menu--------*/
+
+.navMajorContainerO {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  opacity: 1;
+  transition-delay: 0s;
+  transition-duration: 0s;
+}
+.navbgO {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  display: block;
+}
+.navbarO {
+  position: absolute;
+  right: 0%;
+  width: 300px;
+  height: 100vh;
+  background-color: #b88dfce3;
+  transition: 0.2s ease-in;
+}
+.navMajorContainerC {
+  position: fixed;
+  height: 0vh;
+  width: 100%;
+  overflow: hidden;
+  transition-delay: 0.2s;
+  transition-duration: 0s;
+}
+.navbgC {
+  position: fixed;
+  height: 0vh;
+  width: 100%;
+  display: block;
+}
+.navbarC {
+  position: absolute;
+  right: 0%;
+  width: 0px;
+  height: 100vh;
+  background-color: #b88dfce3;
+  transition-duration: 0.2s;
+}

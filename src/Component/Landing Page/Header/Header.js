@@ -13,6 +13,7 @@ const Header = ()=>{
 
     const [authStatus, setAuthStatus] = useState(false);
     const [modal,setModal] = useState(false);
+    const [nav,setNav] = useState(false);
 
     auth.onAuthStateChanged(firebaseUser => {
         if (firebaseUser)
@@ -34,6 +35,13 @@ const Header = ()=>{
 
     return(
         <div className={classes.majorContainer}>
+            <div className={nav?classes.navMajorContainerO:classes.navMajorContainerC}>
+                <div className={nav?classes.navbgO:classes.navbgC} onClick={()=>{setNav(false)}}>
+                </div>
+                <div className={nav?classes.navbarO:classes.navbarC}>
+
+                </div>              
+            </div>
             <div className={modal?classes.modalMajorContainerO:classes.modalMajorContainerC} id="modCtn" >
                 <div className={modal?classes.modalContainerO:classes.modalContainerC} id="mod">
                     <div className={classes.modalUploadC}>
@@ -46,7 +54,7 @@ const Header = ()=>{
             </div>
             <div className={classes.UtilityContainer}>
                 <div className={classes.user}>
-                    <FontAwesomeIcon icon={faBars} className={classes.icon}/>
+                    <FontAwesomeIcon icon={faBars} className={classes.icon} onClick={()=>{setNav(true)}}/>
                 </div>
                 <div className={classes.loginbtn}>
                     {
