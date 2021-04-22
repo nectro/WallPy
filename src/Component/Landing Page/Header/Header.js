@@ -5,7 +5,7 @@ import User from "../../../Assets/User-info.svg";
 import Search from "../../../Assets/search.svg";
 import {Link, Redirect} from "react-router-dom";
 import Upload from "../../Upload/Upload";
-import {auth, firebaseApp, timestamp} from "../../firebase/Config";
+import {auth, firebaseApp, timestamp, projectfirestore} from "../../firebase/Config";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBars} from "@fortawesome/free-solid-svg-icons"
 import Login from "../../alter login/form/login"
@@ -15,11 +15,20 @@ const Header = ()=>{
     const [authStatus, setAuthStatus] = useState(false);
     const [modal,setModal] = useState(false);
     const [nav,setNav] = useState(false);
+    const [name,setName ] = useState(null);
 
     auth.onAuthStateChanged(firebaseUser => {
         if (firebaseUser)
         {
             setAuthStatus(true);
+            var docRef = projectfirestore.collection('users').doc(firebaseUser.uid);
+            docRef.get().then((doc)=>{
+                if(doc.exists){
+                    setName(doc.data().name)
+                }else{
+                    console.log("doesn't exists")
+                }
+            })
         }
         else
         {
@@ -56,15 +65,15 @@ const Header = ()=>{
             </div>
             <div className={classes.LogoContainer}>
                 <img src={Logo} />
-            </div>
-            <div className={classes.UtilityContainer}>
                 <div className={classes.user}>
                     <FontAwesomeIcon icon={faBars} className={classes.icon} onClick={()=>{setNav(true)}}/>
                 </div>
+            </div>
+            <div className={classes.UtilityContainer}>
                 <div className={classes.loginbtn}>
                     {
                         (authStatus)? 
-                        <button onClick={signOut} className={classes.lnk} >Logout</button> : 
+                        <button onClick={signOut} className={classes.lnk}><b>Hi,</b> {name}</button> : 
                         <Link to="/User/login" className={classes.lnk}>Login</Link>
                     }                    
                 </div>{/*

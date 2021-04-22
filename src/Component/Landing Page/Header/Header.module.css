@@ -45,13 +45,13 @@
   cursor: pointer;
 }
 .user {
-  float: right;
+  float: left;
 }
 .icon {
   color: rgba(255, 255, 255, 0.842);
-  font-size: 20px;
-  margin-top: 5px;
-  margin-right: 10px;
+  font-size: 23px;
+  margin-top: 18px;
+  margin-right: 15px;
 }
 .icon:hover {
   cursor: pointer;
@@ -65,7 +65,8 @@
 }
 .lnk {
   text-decoration: none;
-  color: #fff;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.767);
   background-color: transparent;
   outline: none;
   border: none;
@@ -217,7 +218,7 @@
 }
 .navbarO {
   position: absolute;
-  right: 0%;
+  left: 0%;
   width: 300px;
   height: 100vh;
   background-color: #b88dfce3;
@@ -239,7 +240,7 @@
 }
 .navbarC {
   position: absolute;
-  right: 0%;
+  left: 0%;
   width: 0px;
   height: 100vh;
   background-color: #b88dfce3;
