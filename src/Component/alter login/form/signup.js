@@ -28,7 +28,8 @@ const Signup = ()=>{
                 return projectfirestore.collection('users').doc(user.uid).set({
                     name: username,
                     email:email,
-                    interests:[],
+                    interests: [],
+                    totalupload: 0
                 });
                 // ...
             })

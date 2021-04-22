@@ -24,7 +24,6 @@ const Login = ()=>{
             .then((userCredential) => {
                 // Signed in
                 var user = userCredential.user;
-                console.log(user.uid);
                 setAuth(true);
                 // ...
             })

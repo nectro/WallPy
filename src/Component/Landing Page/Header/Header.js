@@ -15,12 +15,15 @@ const Header = ()=>{
     const [authStatus, setAuthStatus] = useState(false);
     const [modal,setModal] = useState(false);
     const [nav,setNav] = useState(false);
-    const [name,setName ] = useState(null);
-
+    const [name, setName] = useState(null);
+    
+    const [UID, setUID] = useState(null);
+    
     auth.onAuthStateChanged(firebaseUser => {
         if (firebaseUser)
         {
             setAuthStatus(true);
+            setUID(firebaseUser.uid)
             var docRef = projectfirestore.collection('users').doc(firebaseUser.uid);
             docRef.get().then((doc)=>{
                 if(doc.exists){
