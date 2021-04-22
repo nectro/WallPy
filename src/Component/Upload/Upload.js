@@ -44,25 +44,27 @@ const Upload = (props) => {
                          url: Url,
                     createdAt:createdAt})
                     setfirebaseUrl(Url)
-                    gili()
-                    
                });
      }
-     function gili ()  {
-     console.log("hello")
-     }
-     /*auth.onAuthStateChanged(firebaseUser => {
+     
+     auth.onAuthStateChanged(firebaseUser => {
+          
           if (firebaseUser&&firebaseurl) {
-               console.log(firebaseUser.uid)
                projectfirestore.collection('users').doc(firebaseUser.uid).update({
-                    totalupload:8
+                    totalupload: 4/*projectfirestore.FieldValue.increment(1)*/            
                })
+               setfirebaseUrl(null)
           }
           else {
               console.log("no user")
           }
       })
-  */
+  
+     
+     
+      useEffect(() => {
+          console.log(firebaseurl)
+        }, [firebaseurl]);
      const onDrop = acceptedFiles => {
           var selected = acceptedFiles[0];
          
