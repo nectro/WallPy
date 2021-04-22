@@ -3,11 +3,12 @@ import classes from "../Header/Header.module.css";
 import Logo from "../../../Assets/Logo1.svg";
 import User from "../../../Assets/User-info.svg";
 import Search from "../../../Assets/search.svg";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import Upload from "../../Upload/Upload";
-import {auth, firebaseApp} from "../../firebase/Config";
+import {auth, firebaseApp, timestamp} from "../../firebase/Config";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBars} from "@fortawesome/free-solid-svg-icons"
+import Login from "../../alter login/form/login"
 
 const Header = ()=>{
 
@@ -45,7 +46,11 @@ const Header = ()=>{
             <div className={modal?classes.modalMajorContainerO:classes.modalMajorContainerC} id="modCtn" >
                 <div className={modal?classes.modalContainerO:classes.modalContainerC} id="mod">
                     <div className={classes.modalUploadC}>
-                        <Upload setModal={setModal}/>
+                        {
+                            (authStatus)?
+                            <Upload setModal={setModal}/> :
+                            ((modal)&&<Redirect to="/User/login"/>)
+                        }
                     </div>
                 </div>
             </div>

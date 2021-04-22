@@ -186,6 +186,17 @@
   border-radius: 8px;
   box-shadow: 0px 1px 10px #252525;
 }
+.logMsg {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #6039a021;
+}
+.logMsg h2 {
+  color: #6930c3;
+}
 
 /*-------the nav menu--------*/
 
