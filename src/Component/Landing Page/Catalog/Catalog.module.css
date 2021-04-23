@@ -7,19 +7,21 @@
   background-color: #fff;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "Column1 Column2";
   gap: 30px;
-  padding-top: 50px;
-  padding-bottom: 20px;
-  padding-left: 2%;
-  padding-right: 2%;
   box-shadow: 0px 10px 40px 0px rgba(64, 38, 105, 1);
+  padding: 30px 30px;
 }
-.Column1 {
-  grid-area: Column1;
-  background-color: aqua;
+.imgWrap{
+  overflow: hidden;
+  height: 0;
+  padding: 50% 0;
+  position: relative;
 }
-.Column2 {
-  grid-area: Column2;
-  background-color: aqua;
+.imgWrap img{
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
