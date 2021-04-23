@@ -46,11 +46,12 @@ const Upload = (props) => {
                                   url: Url,
                                   createdAt: createdAt
                              })
+                             var c = doc.data().totalupload;
                              projectfirestore.collection('users').doc(auth.X).update({
-                                  totalupload:increments,  
-                             })
-                             projectfirestore.collection('users').doc(auth.X).collection("photos").doc("pic"+doc.data().totalupload).set({
-                                  url:Url,  
+                                  totalupload: increments,
+                                  pics: {
+                                  
+                                  }
                              })
                              setfirebaseUrl(Url)
                         })
@@ -64,10 +65,7 @@ const Upload = (props) => {
     
   
      
-     
-      useEffect(() => {
-          console.log(firebaseurl)
-        }, [firebaseurl]);
+  
      const onDrop = acceptedFiles => {
           var selected = acceptedFiles[0];
          
