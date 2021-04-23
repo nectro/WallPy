@@ -53,9 +53,7 @@ const Upload = (props) => {
                                   url:Url,  
                              })
                              setfirebaseUrl(Url)
-                        });
-
-
+                        })
               }else{
                   console.log("doesn't exists")
               }
