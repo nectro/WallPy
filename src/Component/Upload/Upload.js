@@ -49,14 +49,12 @@ const Upload = (props) => {
                              var c = doc.data().totalupload;
                              projectfirestore.collection('users').doc(auth.X).update({
                                   totalupload: increments,
-                                  pics: {
-                                  
-                                  }
+                             })
+                             projectfirestore.collection('users').doc(auth.X).collection('photos').doc("pic"+doc.data().totalupload).set({
+                                  url:Url,
                              })
                              setfirebaseUrl(Url)
-                        });
-
-
+                        })
               }else{
                   console.log("doesn't exists")
               }
