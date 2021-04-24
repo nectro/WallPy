@@ -126,6 +126,7 @@ const Upload = (props) => {
                     {(progress===100)? <p>Finished....</p>:<p>Uploading....</p>}
                     <center><ProgressBar progress={progress}/></center>
                </div>
+               <div><input /></div>
                <div style={{width:"80%",}}>
                     <button onClick={upload} className={classes.button} disabled={file === null}>upload</button>
                     <button onClick={(e)=>{
