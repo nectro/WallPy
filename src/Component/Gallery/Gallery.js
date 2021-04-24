@@ -13,7 +13,6 @@ const Gallery = ()=>{
                 <Popular />
             </div>
             <Catalog />
-            
         </div>
     )
 }
