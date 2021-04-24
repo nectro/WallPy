@@ -44,7 +44,8 @@ const Upload = (props) => {
                              const createdAt = timestamp();
                              uploadRef.doc(auth.X+""+doc.data().totalupload).set({
                                   url: Url,
-                                  createdAt: createdAt
+                                  createdAt: createdAt,
+                                  name: file.name
                              })
                              var c = doc.data().totalupload;
                              projectfirestore.collection('users').doc(auth.X).update({
