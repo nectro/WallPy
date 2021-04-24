@@ -22,6 +22,7 @@ const Signup = ()=>{
         auth.createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 // Signed in
+                setPassword(null)
                 var user = userCredential.user;
                 console.log(user.uid);
                 setAuth(true);
