@@ -1,0 +1,247 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.majorContainer {
+  height: 60px;
+  overflow-y: hidden;
+}
+.LogoContainer {
+  position: static;
+  float: left;
+  margin-top: 2px;
+  margin-left: 20px;
+}
+.LogoContainer img {
+  height: 60px;
+}
+.UtilityContainer {
+  position: static;
+  float: right;
+  margin-top: 16px;
+  margin-right: 15px;
+}
+.Submit {
+  float: right;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+.Submit button {
+  outline: none;
+  padding: 4px 8px;
+  background-color: #ffffff00;
+  color: rgba(255, 255, 255, 0.842);
+  font-size: 14px;
+  font-weight: 100;
+  height: 29px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.185);
+}
+.Submit button:hover {
+  color: #64dfdf;
+  background-color: #ffffff17;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.user {
+  float: left;
+}
+.icon {
+  color: rgba(255, 255, 255, 0.842);
+  font-size: 23px;
+  margin-top: 18px;
+  margin-right: 15px;
+}
+.icon:hover {
+  cursor: pointer;
+  transition-duration: 0.4s;
+  color: #64dfdf;
+}
+.loginbtn {
+  float: right;
+  margin-top: 4px;
+  margin-right: 20px;
+}
+.lnk {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.767);
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 16px;
+}
+.lnk:hover {
+  color: #64dfdf;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.searchBar {
+  margin-right: 20px;
+  float: right;
+}
+.inputText {
+  float: left;
+  width: 260px;
+  height: 30px;
+  background-color: #ffffff17;
+  border: none;
+  outline: none;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 16px;
+  color: #fff;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.button {
+  float: right;
+  width: 40px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.445);
+  background-color: #ffffff17;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.button:hover {
+  background-color: #64dfdf;
+  transition-duration: 00.4s;
+  cursor: pointer;
+}
+.button img {
+  height: 21px;
+  margin-top: 5px;
+}
+
+/*------modal-------*/
+
+.closebtn {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 24px;
+  font-weight: 300;
+  color: rgb(255, 57, 57);
+  background-color: #e1d3f8;
+  line-height: 18px;
+  border-radius: 100px;
+  padding: 5px 10px;
+  padding-bottom: 8px;
+}
+.closebtn:hover {
+  background-color: rgba(255, 57, 57, 0.76);
+  color: #fff;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.modalMajorContainerO {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition-delay: 0s;
+  transition-duration: 0s;
+}
+.modalContainerO {
+  height: 100vh;
+  width: 100%;
+  background-color: #25252563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 10;
+  transition-delay: 0s;
+  transition-duration: 0.5s;
+}
+.modalUploadO {
+  height: 60vh;
+  width: 70%;
+  background-color: rgb(241, 240, 240);
+  border-radius: 8px;
+  box-shadow: 0px 1px 10px #252525;
+}
+.modalMajorContainerC {
+  position: fixed;
+  height: 0vh;
+  width: 100%;
+  overflow: hidden;
+  transition-delay: 0.5s;
+}
+.modalContainerC {
+  height: 100vh;
+  width: 100%;
+  background-color: #25252563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+.modalUploadC {
+  height: 60vh;
+  width: 70%;
+  background-color: rgb(241, 240, 240);
+  border-radius: 8px;
+  box-shadow: 0px 1px 10px #252525;
+}
+.logMsg {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #6039a021;
+}
+.logMsg h2 {
+  color: #6930c3;
+}
+
+/*-------the nav menu--------*/
+
+.navMajorContainerO {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  opacity: 1;
+  transition-delay: 0s;
+  transition-duration: 0s;
+}
+.navbgO {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  display: block;
+}
+.navbarO {
+  position: absolute;
+  left: 0%;
+  width: 300px;
+  height: 100vh;
+  background-color: #b88dfce3;
+  transition: 0.2s ease-in;
+}
+.navMajorContainerC {
+  position: fixed;
+  height: 0vh;
+  width: 100%;
+  overflow: hidden;
+  transition-delay: 0.2s;
+  transition-duration: 0s;
+}
+.navbgC {
+  position: fixed;
+  height: 0vh;
+  width: 100%;
+  display: block;
+}
+.navbarC {
+  position: absolute;
+  left: 0%;
+  width: 0px;
+  height: 100vh;
+  background-color: #b88dfce3;
+  transition-duration: 0.2s;
+}

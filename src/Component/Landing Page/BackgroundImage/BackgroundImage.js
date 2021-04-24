@@ -8,7 +8,6 @@ const BackgroundImage = () => {
   return (
        <div className={classes.majorContainer}>
           <Header/>
-          <PopularBar />
           <div className={classes.imgContainer}>
                <div className={classes.searchBar}>          
                     <input type="text" className={classes.inputText}/>
