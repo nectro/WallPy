@@ -12,7 +12,6 @@ const Login = ()=>{
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [authyep, setAuth] = useState(false);
-    const [err, setError] = useState("");
     
 
     const loginclicked = (e) => {

@@ -21,28 +21,23 @@ const Catalog = () => {
 
 /*just for checkinf delete later on */
      console.log(docs)
+     const cl1 = docs.slice(0,docs.length/2);
+     const cl2 = docs.slice(docs.length/2 ,docs.length);
      
      var a = 1;
      
      return (
           <div className={classes.majorContainer}>
                <div className={classes.imgWrap1}>
-               {docs && docs.map(doc => (
-                    (a++%2 === 0)?
-                         <img src={doc.url} alt="uploaded pic"/> :
-                         null    
+               {cl1 && cl1.map(doc => (
+                         <img src={doc.url} alt="uploaded pic"/> 
                ))}
                </div> 
                <div className={classes.imgWrap2}>
-               {docs && docs.map(doc => (
-                    (docs.length % 2 === 0)?
-                         ((a++%2 === 0)?
-                         null :
-                         <img src={doc.url} alt="uploaded pic"/>) :
-                         ((a++%2 === 0)?
-                         <img src={doc.url} alt="uploaded pic"/> :
-                         null)
-               ))}
+               {cl2 && cl2.map(doc => (
+                         <img src={doc.url} alt="uploaded pic"/>)
+                         
+               )}
                </div>                
           </div>
      )
