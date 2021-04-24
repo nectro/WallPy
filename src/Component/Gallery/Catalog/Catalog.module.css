@@ -1,0 +1,30 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.majorContainer {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "clmn1 clmn2";
+  gap: 40px;
+  padding: 20px 30px;
+}
+.imgWrap1 {
+  grid-area: "clmn1";
+  display: inline-block;
+  width: 100%;
+}
+.imgWrap1 img {
+  width: 100%;
+  margin: 20px 0px;
+}
+.imgWrap2 {
+  grid-area: "clmn2";
+  display: inline-block;
+  width: 100%;
+}
+.imgWrap2 img {
+  width: 100%;
+  margin: 20px 0px;
+}

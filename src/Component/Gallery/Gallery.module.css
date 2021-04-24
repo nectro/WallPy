@@ -1,0 +1,11 @@
+* {
+  margin: 0xp;
+  padding: 0px;
+}
+.HeaderContainer {
+  background: linear-gradient(
+    180deg,
+    rgba(45, 23, 82, 1) 0%,
+    rgba(104, 48, 195, 1) 100%
+  );
+}
