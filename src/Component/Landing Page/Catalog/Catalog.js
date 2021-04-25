@@ -6,7 +6,8 @@ const Catalog = () => {
      const [docs, setDocs] = useState([])
      useEffect(() => {
           projectfirestore.collection('upload')
-               .orderBy('createdAt', 'desc')
+              
+               .where("name","==","coffee.jpg")
                .onSnapshot((snap) => {
                     let documents = [];
                     snap.forEach(doc => {

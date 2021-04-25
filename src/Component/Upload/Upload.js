@@ -44,7 +44,8 @@ const Upload = (props) => {
                              const createdAt = timestamp();
                              uploadRef.doc(auth.X+""+doc.data().totalupload).set({
                                   url: Url,
-                                  createdAt: createdAt
+                                  createdAt: createdAt,
+                                  name: file.name
                              })
                              var c = doc.data().totalupload;
                              projectfirestore.collection('users').doc(auth.X).update({
@@ -126,6 +127,7 @@ const Upload = (props) => {
                     {(progress===100)? <p>Finished....</p>:<p>Uploading....</p>}
                     <center><ProgressBar progress={progress}/></center>
                </div>
+               <div><input /></div>
                <div style={{width:"80%",}}>
                     <button onClick={upload} className={classes.button} disabled={file === null}>upload</button>
                     <button onClick={(e)=>{
