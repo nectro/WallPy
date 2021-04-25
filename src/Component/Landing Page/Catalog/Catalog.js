@@ -7,7 +7,8 @@ const Catalog = (props) => {
      const { search, setsearch } = props
      const [filter, setFilter] = useState([""])
      useEffect(() => {
-          projectfirestore.collection('upload')
+          filter[0] !== ""?
+               projectfirestore.collection('upload')
                .where('tag', 'array-contains-any',filter)
                .onSnapshot((snap) => {
                     let documents = [];
@@ -15,14 +16,23 @@ const Catalog = (props) => {
                          documents.push({ ...doc.data(), id: doc.id });
                     });
                     setDocs(documents)
-               });
+               }) :
+               projectfirestore.collection('upload')
+               .orderBy("createdAt","desc")
+               .onSnapshot((snap) => {
+                    let documents = [];
+                    snap.forEach(doc => {
+                         documents.push({ ...doc.data(), id: doc.id });
+                    });
+                    setDocs(documents)
+               })              
          
 
      },[filter])
      useEffect(() => {
           
      setFilter(search.split(" "))
-},[search])
+     },[search])
 
 /*just for checkinf delete later on */
      console.log(docs)
