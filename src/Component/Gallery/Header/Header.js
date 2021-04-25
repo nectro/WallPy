@@ -84,7 +84,7 @@ const Header = ()=>{
                     <button className={classes.button}>
                         <img src={Search} />
                     </button>
-                </div>*
+                </div>
                 <div className={classes.Submit}>
                     <button onClick={()=>{setModal(true)}}
                     >

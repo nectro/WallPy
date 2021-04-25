@@ -5,7 +5,15 @@
 .HeaderContainer {
   background: linear-gradient(
     180deg,
-    rgba(45, 23, 82, 1) 0%,
-    rgba(104, 48, 195, 1) 100%
+    rgba(45, 23, 82, 0.9) 0%,
+    rgba(104, 48, 195, 0.7) 100%
   );
+}
+.majorContainer {
+  background-image: url(../../Assets/Wallpaper.png);
+  background-position-x: center;
+  background-position-y: -55vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }

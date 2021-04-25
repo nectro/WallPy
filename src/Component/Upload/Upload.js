@@ -17,6 +17,9 @@ const Upload = (props) => {
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
      const {setModal}=props;
+     const [tags, setTags] = useState(["black","white","yellow","blue","red","cars","bmw","audi","maruti","lambo"])
+     const [tagImg, setTagImg] = useState([])
+     const [search, setSearch] = useState("")
     
    
      const types = ["image/jpeg", "image/png", "image/jpg"];
@@ -104,6 +107,11 @@ const Upload = (props) => {
              }
 
         }, [progress])
+
+        useEffect(()=>{
+          console.log(tagImg)
+
+        }, [tagImg])
       
 
      return (
@@ -127,7 +135,36 @@ const Upload = (props) => {
                     {(progress===100)? <p>Finished....</p>:<p>Uploading....</p>}
                     <center><ProgressBar progress={progress}/></center>
                </div>
-               <div><input /></div>
+               <div className={classes.heading}>
+                    <p>Setup tags</p>
+               </div>
+               <div className={classes.tags}>
+                    <div className={classes.searchbox}>
+                         <input type="text" className={classes.box} placeholder="search for the tags...." onChange={(e)=>{setSearch(e.target.value.toLowerCase())}} />
+                         {
+                              tagImg && tagImg.map(tag =>(
+                                   <input type="submit" key={tag} value={tag} onClick={(e)=>{
+                                        var item = tagImg;
+                                        var index = item.indexOf(e.target.value);
+                                        var p1 = item.slice(0,(index))
+                                        var p2 = item.slice((index+1),item.length)
+                                        setTagImg(p1.concat(p2))
+                                   }} className={classes.selectedTags} />
+                              ))
+                         }
+                    </div>
+                    <div className={classes.tagList}>
+                         {
+                              tags && tags.map(tag =>(
+                                   tag.startsWith(search)?
+                                   <input type="submit" key={tag} value={tag} onClick={(e)=>{
+                                        tagImg.includes(e.target.value)?setTagImg([...tagImg]):setTagImg([...tagImg, e.target.value])
+                                   }} className={classes.availableTags} disabled={tagImg.length >= 5}/>:null
+                              ))
+                         }
+                    </div>
+
+               </div>
                <div style={{width:"80%",}}>
                     <button onClick={upload} className={classes.button} disabled={file === null}>upload</button>
                     <button onClick={(e)=>{
