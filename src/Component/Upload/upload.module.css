@@ -139,7 +139,7 @@
 }
 .tagList {
   height: 50px;
-  padding: 5px;
+  margin-top: 10px;
   text-align: left;
   width: 60%;
   overflow-y: auto;
