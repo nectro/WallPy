@@ -8,13 +8,17 @@ const SearchBar = () => {
      const searchandle = (event) => {
      setsearchvalue(event.target.value)
      }
+     const clickhandle  = () => {
+         console.log(searchvalue)
+          }
      useEffect(
-          ()=>{console.log(searchvalue)}
+          ()=>{}
           ,[searchvalue])
      return (
           <div className={classes.searchBar}>          
                <input type="text" className={classes.inputText} onChange={searchandle} value={searchvalue}/>
-                    <button className={classes.button}>
+               <button className={classes.button} onClick=
+                    {clickhandle}>
                          <img src={Search} />
                     </button>
                </div>

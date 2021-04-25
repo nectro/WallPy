@@ -7,7 +7,7 @@ const Catalog = () => {
      useEffect(() => {
           projectfirestore.collection('upload')
               
-               .where("name","==","coffee.jpg")
+               .where("name", "==", "coffee.jpg")
                .onSnapshot((snap) => {
                     let documents = [];
                     snap.forEach(doc => {
