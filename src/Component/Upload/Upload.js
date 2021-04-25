@@ -17,7 +17,7 @@ const Upload = (props) => {
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
      const {setModal}=props;
-     const [tags, setTags] = useState(["black","white","yellow","blue","red","cars","bmw","audi","maruti","lambo"])
+     const [tags, setTags] = useState(["black","white","yellow","blue","red","cars","bmw","audi","maruti","lambo","sex","porn","ship","coffee","dani","mia","temple","god","chand","BJP"])
      const [tagImg, setTagImg] = useState([])
      const [search, setSearch] = useState("")
     
@@ -48,7 +48,8 @@ const Upload = (props) => {
                              uploadRef.doc(auth.X+""+doc.data().totalupload).set({
                                   url: Url,
                                   createdAt: createdAt,
-                                  name: file.name
+                                  name: file.name,
+                                  tag:tagImg
                              })
                              var c = doc.data().totalupload;
                              projectfirestore.collection('users').doc(auth.X).update({
@@ -135,10 +136,10 @@ const Upload = (props) => {
                     {(progress===100)? <p>Finished....</p>:<p>Uploading....</p>}
                     <center><ProgressBar progress={progress}/></center>
                </div>
-               <div className={classes.heading}>
+               <div className={classes.heading} style={upstyle}>
                     <p>Setup tags</p>
                </div>
-               <div className={classes.tags}>
+               <div className={classes.tags} style={upstyle}>
                     <div className={classes.searchbox}>
                          <input type="text" className={classes.box} placeholder="search for the tags...." onChange={(e)=>{setSearch(e.target.value.toLowerCase())}} />
                          {
@@ -153,7 +154,7 @@ const Upload = (props) => {
                               ))
                          }
                     </div>
-                    <div className={classes.tagList}>
+                    <div className={classes.tagList} style={upstyle}>
                          {
                               tags && tags.map(tag =>(
                                    tag.startsWith(search)?
@@ -173,6 +174,7 @@ const Upload = (props) => {
                         setUpStyle({display:"block"});
                         setProgStyle({display:"none"});
                         setModal(false);
+                        setTagImg([]);
                     }} className={classes.buttonC}>
                          Cancel
                     </button>
