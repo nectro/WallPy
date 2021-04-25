@@ -157,7 +157,7 @@
   transition-duration: 0.5s;
 }
 .modalUploadO {
-  height: 60vh;
+  height: 80vh;
   width: 70%;
   background-color: rgb(241, 240, 240);
   border-radius: 8px;
@@ -181,7 +181,7 @@
   transition-duration: 0.5s;
 }
 .modalUploadC {
-  height: 60vh;
+  height: 80vh;
   width: 70%;
   background-color: rgb(241, 240, 240);
   border-radius: 8px;
