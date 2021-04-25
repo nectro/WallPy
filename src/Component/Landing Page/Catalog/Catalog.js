@@ -2,9 +2,10 @@ import react, { useState, useEffect } from "react"
 import classes from "../Catalog/Catalog.module.css"
 import {projectfirestore} from '../../firebase/Config'
 
-const Catalog = () => {
+const Catalog = (props) => {
      const [docs, setDocs] = useState([])
-     const [filter, setFilter] = useState(['food', 'black'])
+     const { search, setsearch } = props
+     const [filter, setFilter] = useState([""])
      useEffect(() => {
           projectfirestore.collection('upload')
                .where('tag', 'array-contains-any',filter)
@@ -17,8 +18,11 @@ const Catalog = () => {
                });
          
 
-     },['upload'])
-
+     },[filter])
+     useEffect(() => {
+          
+     setFilter(search.split(" "))
+},[search])
 
 /*just for checkinf delete later on */
      console.log(docs)

@@ -5,12 +5,14 @@ import Header from "../Header/Header";
 import PopularBar from "../popularBar/PopularBar"
 import classes from "../BackgroundImage/BackgroundImage.module.css"
 import SearchBar from '../SearchBar/SearchBar'
-const BackgroundImage = () => {
+const BackgroundImage = (props) => {
+
+     const {search,setsearch} = props
   return (
        <div className={classes.majorContainer}>
           <Header/>
           <div className={classes.imgContainer}>
-               <SearchBar/>
+               <SearchBar search={search} setsearch={setsearch}/>
           </div>
        </div>
      )
