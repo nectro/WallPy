@@ -2,12 +2,13 @@ import react, { useState, useEffect } from "react"
 import classes from "../Catalog/Catalog.module.css"
 import {projectfirestore} from '../../firebase/Config'
 
-const Catalog = () => {
+const Catalog = (props) => {
      const [docs, setDocs] = useState([])
+     const { search, setsearch } = props
+     const [filter, setFilter] = useState([""])
      useEffect(() => {
           projectfirestore.collection('upload')
-              
-               .where("name", "==", "coffee.jpg")
+               .where('tag', 'array-contains-any',filter)
                .onSnapshot((snap) => {
                     let documents = [];
                     snap.forEach(doc => {
@@ -17,8 +18,11 @@ const Catalog = () => {
                });
          
 
-     },['upload'])
-
+     },[filter])
+     useEffect(() => {
+          
+     setFilter(search.split(" "))
+},[search])
 
 /*just for checkinf delete later on */
      console.log(docs)
