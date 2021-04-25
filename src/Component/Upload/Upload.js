@@ -114,6 +114,7 @@ const Upload = (props) => {
 
         }, [tagImg])
       
+        var flag = false;
 
      return (
           <div className={classes.majorContainer}>
@@ -160,8 +161,21 @@ const Upload = (props) => {
                                    tag.startsWith(search)?
                                    <input type="submit" key={tag} value={tag} onClick={(e)=>{
                                         tagImg.includes(e.target.value)?setTagImg([...tagImg]):setTagImg([...tagImg, e.target.value])
-                                   }} className={classes.availableTags} disabled={tagImg.length >= 5}/>:null
+                                   }} className={classes.availableTags} disabled={tagImg.length >= 5}/> : null
                               ))
+                         }
+                         {
+                              tags && tags.map(tag =>(
+                                   tag.startsWith(search)?flag = true : null
+                              ))
+                         }
+                         {
+                              !flag? <input type="submit" value="add" className={classes.availableTags} 
+                                   onClick={()=>{
+                                        setTags([...tags, search])
+                                        setTagImg([...tagImg, search])
+                                   }}
+                              /> : null
                          }
                     </div>
 
