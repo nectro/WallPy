@@ -17,6 +17,9 @@ const Upload = (props) => {
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
      const {setModal}=props;
+     const [tags, setTags] = useState(["black","white","yellow","blue","red"])
+     const [tagImg, setTagImg] = useState([])
+     const [search, setSearch] = useState()
     
    
      const types = ["image/jpeg", "image/png", "image/jpg"];
@@ -104,6 +107,11 @@ const Upload = (props) => {
              }
 
         }, [progress])
+
+        useEffect(()=>{
+          console.log(tagImg)
+
+        }, [tagImg])
       
 
      return (
@@ -127,7 +135,28 @@ const Upload = (props) => {
                     {(progress===100)? <p>Finished....</p>:<p>Uploading....</p>}
                     <center><ProgressBar progress={progress}/></center>
                </div>
-               <div><input /></div>
+               <div className={classes.tags}>
+                    <input type="text" onChange={(e)=>{}} />
+                    <div className={classes.tagList}>
+                         {
+                              tagImg && tagImg.map(tag =>(
+                                   <input type="submit" key={tag} value={tag} onClick={(e)=>{
+                                        setTagImg([...tagImg, e.target.value])
+                                   }} />
+                              ))
+                         }
+                    </div>
+                    <div className={classes.tagList}>
+                         {
+                              tags && tags.map(tag =>(
+                                   <input type="submit" key={tag} value={tag} onClick={(e)=>{
+                                        tagImg.includes(e.target.value)?setTagImg([...tagImg]):setTagImg([...tagImg, e.target.value])
+                                   }} />
+                              ))
+                         }
+                    </div>
+
+               </div>
                <div style={{width:"80%",}}>
                     <button onClick={upload} className={classes.button} disabled={file === null}>upload</button>
                     <button onClick={(e)=>{

@@ -4,10 +4,10 @@ import {projectfirestore} from '../../firebase/Config'
 
 const Catalog = () => {
      const [docs, setDocs] = useState([])
+     const [filter, setFilter] = useState(['food', 'black'])
      useEffect(() => {
           projectfirestore.collection('upload')
-              
-               .where("name","==","coffee.jpg")
+               .where('tag', 'array-contains-any',filter)
                .onSnapshot((snap) => {
                     let documents = [];
                     snap.forEach(doc => {

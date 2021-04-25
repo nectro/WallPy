@@ -105,3 +105,14 @@
   transition-duration: 0.4s;
   cursor: pointer;
 }
+.tags {
+  width: 80%;
+}
+.tagList {
+  height: 60px;
+}
+.tagList input {
+  display: inline-block;
+  width: 50px;
+  margin: 0px 5px;
+}
