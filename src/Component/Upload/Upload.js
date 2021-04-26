@@ -57,7 +57,8 @@ const Upload = (props) => {
                                   uploadsurl:arrayadd.arrayUnion(Url)
                              })                            
                            
-                        })
+                   })
+                   setTagImg([]);
               }else{
                   console.log("doesn't exists")
               }
