@@ -45,12 +45,14 @@ const Upload = (props) => {
                         }, async () => {
                              const Url = await mountainImagesRef.getDownloadURL();
                              const createdAt = timestamp();
-                             uploadRef.doc(auth.X+""+doc.data().totalupload).set({
+                             uploadRef.doc(auth.X+""+doc.data().totalupload).set({pic:arrayadd.arrayUnion({
                                   url: Url,
-                                  createdAt: createdAt,
                                   name: file.name,
                                   tag:tagImg
-                             })
+                             }),
+                             createdAt: createdAt,
+                             }
+                             )
                             
                              projectfirestore.collection('users').doc(auth.X).update({
                                   totalupload: increments,
