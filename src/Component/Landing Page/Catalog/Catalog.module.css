@@ -8,8 +8,11 @@
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "clmn1 clmn2";
   gap: 40px;
-  padding: 20px 30px;
+  padding: 50px 30px;
   box-shadow: 0px 10px 40px 0px rgba(64, 38, 105, 1);
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  margin-top: -20px;
 }
 .imgWrap1 {
   grid-area: "clmn1";
@@ -19,6 +22,7 @@
 .imgWrap1 img {
   width: 100%;
   margin: 20px 0px;
+  border-radius: 5px;
 }
 .imgWrap2 {
   grid-area: "clmn2";
@@ -28,4 +32,18 @@
 .imgWrap2 img {
   width: 100%;
   margin: 20px 0px;
+  border-radius: 5px;
+}
+@media screen and (max-width: 700px) {
+  .majorContainer {
+    gap: 10px;
+    padding: 40px 10px;
+    min-height: 70vh;
+  }
+  .imgWrap1 img {
+    margin: 3px 0px;
+  }
+  .imgWrap2 img {
+    margin: 3px 0px;
+  }
 }

@@ -73,6 +73,9 @@ const Header = ()=>{
                 </div>
             </div>
             <div className={classes.UtilityContainer}>
+                <div className={classes.user1}>
+                    <FontAwesomeIcon icon={faBars} className={classes.icon1} onClick={()=>{setNav(true)}}/>
+                </div>
                 <div className={classes.loginbtn}>
                     {
                         (authStatus)? 

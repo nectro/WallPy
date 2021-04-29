@@ -74,3 +74,22 @@
   color: rgb(25, 221, 235);
   cursor: pointer;
 }
+@media screen and (max-width: 700px) {
+  .majorContainer {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0px;
+  }
+  .copyright {
+    text-align: center;
+    margin: 0px;
+  }
+  .social {
+    text-align: center;
+    margin: 0px;
+  }
+}

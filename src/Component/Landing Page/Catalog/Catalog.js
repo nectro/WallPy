@@ -31,7 +31,7 @@ const Catalog = (props) => {
      },[filter])
      useEffect(() => {
           
-     setFilter(search.split(" "))
+     setFilter(search.toLowerCase().trim().split(" "))
      },[search])
 
 /*just for checkinf delete later on */
