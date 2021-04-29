@@ -13,7 +13,7 @@ const Footer = () => {
                      2021 copyright 
                </div>
                <div className={classes.social}> 
-                    Follow us on :
+                    <p>Follow us on :</p>
                     <FontAwesomeIcon icon={faFacebook} className={classes.smicon1} />
                     <FontAwesomeIcon icon={faInstagram} className={classes.smicon2} />
                     <FontAwesomeIcon icon={faMedium} className={classes.smicon3} />

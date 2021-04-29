@@ -72,13 +72,23 @@
 
 @media screen and (max-width: 700px) {
   .majorContainer {
+    /*
     background: linear-gradient(
       180deg,
       rgba(64, 38, 105, 0.884) 0%,
       rgba(104, 48, 195, 0.253) 100%,
       rgba(104, 48, 195, 0.205) 100%
+    );*/
+    background: linear-gradient(
+      180deg,
+      rgb(64, 38, 105) 0%,
+      rgb(111, 44, 218) 100%
     );
-    height: 30vh;
+    height: 35vh;
+    position: fixed;
+    top: 0px;
+    z-index: -10;
+    width: 100%;
   }
   .imgContainer {
     height: 60%;

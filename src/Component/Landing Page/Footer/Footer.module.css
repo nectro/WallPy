@@ -19,6 +19,9 @@
   font-size: 16px;
   font-weight: 300;
   color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 .copyright {
   grid-area: copyright;
@@ -81,7 +84,7 @@
     height: fit-content;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     padding: 15px 0px;
   }
   .copyright {
@@ -91,5 +94,8 @@
   .social {
     text-align: center;
     margin: 0px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
   }
 }

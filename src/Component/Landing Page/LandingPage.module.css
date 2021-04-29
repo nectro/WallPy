@@ -3,8 +3,7 @@
   margin: 0px;
 }
 .majorContainer {
-  /*
-  background-image: url(../../Assets/Wallpaper.png);*/
+  background-image: url(../../Assets/Wallpaper.png);
   background-attachment: fixed;
   background-position: center;
   background-repeat: repeat;
@@ -13,5 +12,6 @@
 @media screen and (max-width: 700px) {
   .majorContainer {
     background-position-y: -37vh;
+    background-image: none;
   }
 }
