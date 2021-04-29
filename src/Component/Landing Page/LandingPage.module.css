@@ -3,7 +3,8 @@
   margin: 0px;
 }
 .majorContainer {
-  background-image: url(../../Assets/Wallpaper.png);
+  /*
+  background-image: url(../../Assets/Wallpaper.png);*/
   background-attachment: fixed;
   background-position: center;
   background-repeat: repeat;
