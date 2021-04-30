@@ -1,6 +1,6 @@
 import react, { useState, useEffect } from "react"
 import ProgressBar from '../Upload/ProgressBar'
-import { auth, projectStorage, firebaseApp ,projectfirestore,timestamp,increments,arrayadd} from "../firebase/Config"
+import { auth, projectStorage, firebaseApp ,projectfirestore,timestamp,increments} from "../firebase/Config"
 import classes from "../Upload/upload.module.css";
 import { useDropzone } from 'react-dropzone'
 
@@ -13,7 +13,7 @@ const Upload = (props) => {
      const [file, setFile] = useState(null);
      const [error, setError] = useState(null);
      const [url, setUrl] = useState(null);
-     
+     const [firebaseurl, setfirebaseUrl] = useState(null);
      const [upstyle,setUpStyle] = useState({display:"block"});
      const [progstyle,setProgStyle] = useState({display:"none"});
      const {setModal}=props;
@@ -45,22 +45,21 @@ const Upload = (props) => {
                         }, async () => {
                              const Url = await mountainImagesRef.getDownloadURL();
                              const createdAt = timestamp();
-                             uploadRef.doc(auth.X+""+doc.data().totalupload).set({pic:arrayadd.arrayUnion({
+                             uploadRef.doc(auth.X+""+doc.data().totalupload).set({
                                   url: Url,
+                                  createdAt: createdAt,
                                   name: file.name,
                                   tag:tagImg
-                             }),
-                             createdAt: createdAt,
-                             }
-                             )
-                            
+                             })
+                             var c = doc.data().totalupload;
                              projectfirestore.collection('users').doc(auth.X).update({
                                   totalupload: increments,
-                                  uploadsurl:arrayadd.arrayUnion(Url)
-                             })                            
-                           
-                   })
-                   setTagImg([]);
+                             })
+                             projectfirestore.collection('users').doc(auth.X).collection('photos').doc("pic"+doc.data().totalupload).set({
+                                  url:Url,
+                             })
+                             setfirebaseUrl(Url)
+                        })
               }else{
                   console.log("doesn't exists")
               }
