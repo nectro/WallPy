@@ -30,7 +30,8 @@ const Signup = ()=>{
                     name: username,
                     email:email,
                     interests: [],
-                    totalupload: 0
+                    totalupload: 0,
+                    uploadsurl:[]
                 });
                 // ...
             })
